@@ -3,7 +3,9 @@ import styles from './App.module.scss';
 
 function App() {
   return (
-    <div className={styles.App} />
+    <div className={styles.App}>
+      <h1>Hola</h1>
+    </div>
   );
 }
 
