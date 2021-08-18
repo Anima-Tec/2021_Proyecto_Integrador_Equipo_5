@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('profile_picture');
             $table->integer('height');
             $table->integer('weight');
+            $table->bigInteger('active')->default('1');
             $table->rememberToken();
             $table->timestamps();
         });

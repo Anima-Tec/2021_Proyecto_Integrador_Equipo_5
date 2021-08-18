@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class UserController extends ApiController
 {
     /**
      * Display a listing of the resource.
@@ -13,17 +14,15 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
-    }
+        try {
+            $User = User::where('active', '=', 1)
+                    ->select('id', 'name', 'phone', 'date_birth', 'profile_picture', 'height', 'weight')
+                    ->get();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+            return $this->sendResponse($User, "Usuarios obtenidos correctamente");
+        } catch (\Exception $e) {
+            return $this->sendError($e, "Error controlado al mostrar los Usuarios", 200);
+        }
     }
 
     /**
@@ -34,7 +33,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $User = new User();
+            $User->name = $request->input('name');
+            $User->phone = $request->input('phone');
+            $User->date_birth = $request->input('date_birth');
+            $User->profile_picture = $request->input('profile_picture');
+            $User->height = $request->input('height');
+            $User->weight = $request->input('weight');
+            $User->save();
+            return $this->sendResponse($User, "Usuario creado correctamente");
+        } catch (\Exception $e) {
+            return $this->sendError($e, "Error al crear el Usuario", 200);
+        }
     }
 
     /**
@@ -45,18 +56,14 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        try {
+            $User = User::where('id', $id)
+                    ->select('id', 'name', 'phone', 'date_birth', 'profile_picture', 'height', 'weight')
+                    ->get();
+            return $this->sendResponse($User, "Usuario obtenido correctamente");
+        } catch (\Exception $e) {
+            return $this->sendError($e, "Error al obtener el Usuario");
+        }
     }
 
     /**
