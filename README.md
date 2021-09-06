@@ -1,6 +1,6 @@
 # kiwi
 
-_App que brindar un seguimiento único al usuario para que mejore su calidad de vida y su bienestar._
+_Aplicacion web que brinda un seguimiento único al usuario para que mejore su calidad de vida y su bienestar._
 
 ## Autores ✒️
 
