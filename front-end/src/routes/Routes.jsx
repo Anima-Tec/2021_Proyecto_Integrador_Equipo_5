@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from '../pages/Home';
-import Login from '../pages/Login';
+import Login from '../pages/SignIn';
 
 import NavRouter from './NavRoutes';
 
