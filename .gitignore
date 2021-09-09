@@ -6,6 +6,7 @@
 /front-end/coverage
 # production
 /front-end/build
+node_modules
 /back-end/node_modules
 /front-end/node_modules
 /back-end/public/hot
