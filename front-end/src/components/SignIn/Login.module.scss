@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+@import "../../assets/stylesheets/colors.scss";
+
+.section {
+    background-color: #f9fae9;
+}
+
+.title {
+    font-family: "Open Sans", sans-serif;
+    color: $font;
+    font-size: 40px;
+    margin-bottom: 35px;
+}
+
+.label {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    color: #9b9b9b;
+}
+
+.input {
+    padding: 5px;
+    border-radius: 10px;
+    width: 479px;
+    height: 54px;
+    box-shadow: 0 0 6px -3px;
+    font-family: "Roboto", sans-serif !important;
+    font-size: 15px !important;
+    padding-left: 21px;
+    outline: none;
+    border: none;
+}
+
+.p {
+    font-family: "Roboto", sans-serif !important;
+    font-size: 18px !important;
+    margin-top: 15px;
+    color: #9b9b9b;
+    width: 479px;
+    text-align: left;
+}
+
+.button {
+    border-radius: 10px 0px 10px 10px !important;
+    border: none;
+    background: $primary;
+    color: white;
+    width: 479px;
+    height: 54px;
+    font-family: "Roboto", sans-serif !important;
+}
+
+.link {
+    font-family: "Roboto", sans-serif !important;
+    font-size: 18px !important;
+    margin-top: 15px;
+    color: $primary;
+    outline: none;
+    text-decoration: none;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
