@@ -27,7 +27,7 @@ export default function Login() {
       <div className="row" style={{ height: '100vh' }}>
         <div style={{ backgroundColor: '#f9fae9' }} className="col-6 d-flex justify-content-center align-items-center">
           <div>
-            <svg width="793" height="552" viewBox="0 0 793 552" fill="none">
+            <svg width="auto" height="552" viewBox="0 0 793 552" fill="none">
               <g clipPath="url(#clip0)">
                 <path d="M158 551.731C245.261 551.731 316 546.359 316 539.731C316 533.104 245.261 527.731 158 527.731C70.739 527.731 0 533.104 0 539.731C0 546.359 70.739 551.731 158 551.731Z" fill="#E6E6E6" />
                 <path d="M120.772 122.419C148.269 110.724 182.517 118.134 215.963 123.277C216.274 117.049 220.047 109.469 216.095 105.124C211.294 99.845 211.736 94.2985 214.625 88.72C222.013 74.455 211.428 59.2763 200.741 46.6553C198.332 43.8171 195.288 41.587 191.855 40.1462C188.422 38.7055 184.698 38.0947 180.985 38.3636L161.188 39.7777C156.37 40.1218 151.773 41.9289 148.01 44.9574C144.248 47.9858 141.5 52.091 140.135 56.7238C135.408 63.153 132.878 69.5644 134.471 75.9423C127.39 80.7812 126.2 86.6221 129.382 93.2068C132.08 97.3527 132.051 101.388 129.259 105.312C125.593 110.315 122.784 115.893 120.949 121.818L120.772 122.419Z" fill="#2F2E41" />
@@ -97,7 +97,7 @@ export default function Login() {
             </svg>
           </div>
         </div>
-        <div className="col-6 d-flex justify-content-center">
+        <div className="col-6 d-flex justify-content-center align-items-center">
           <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
             <div>
               <h1 className={styles.title}>Iniciar sesión</h1>
