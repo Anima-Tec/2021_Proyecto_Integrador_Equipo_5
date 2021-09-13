@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Client;
 use App\Models\User;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UserFactory extends Factory
 {
@@ -23,15 +24,15 @@ class UserFactory extends Factory
      */
     public function definition()
     {
-        return [
-            'name' => $this->faker->name,
-            'phone' => rand(),
+        $user_roles = ['Client', 'Adviser'];
+        $user = User::create([
+            'name' => $this->faker->firstName(),
+            'last_name' => $this->faker->lastName(),
             'date_birth' => '2003-12-30',
-            'height' => rand(100,200),
-            'weight' => rand(30,200),
-            'profile_picture' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/2048px-User_icon_2.svg.png',
+            'role' => $user_roles[rand(0,1)],
+            'email' => $this->faker->unique()->safeEmail,
             'password' => Hash::make(Str::random(8)),
-            'remember_token' => Str::random(10),
-        ];
+        ]);
+        $user->client()->save(Client::factory()->create());
     }
 }

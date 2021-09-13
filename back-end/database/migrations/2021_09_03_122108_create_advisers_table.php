@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateComments extends Migration
+class CreateAdvisersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateComments extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('advisers', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->string('title');
-            $table->string('text');
-            $table->bigInteger('active')->default('1');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');;
+            $table->enum('role', ['Psychologist', 'Nutritionist']);
             $table->timestamps();
         });
     }
@@ -31,6 +29,8 @@ class CreateComments extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('advisers');
+        Schema::enableForeignKeyConstraints();
     }
 }
