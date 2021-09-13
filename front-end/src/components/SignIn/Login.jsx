@@ -30,7 +30,6 @@ export default function Login() {
     <div className="container-fluid">
       <div className="row" style={{ height: '100vh' }}>
         <div
-          style={{ backgroundColor: '#f9fae9' }}
           className="col d-none d-sm-flex d-sm-none d-md-flex d-flex justify-content-center align-items-center"
         >
           <img src={Ilustration} alt="Ilustración" className={styles.img} />
