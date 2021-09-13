@@ -10,6 +10,7 @@
     color: $font;
     font-size: 40px;
     margin-bottom: 35px;
+    width: 100%;
 }
 
 .label {
@@ -21,7 +22,7 @@
 .input {
     padding: 5px;
     border-radius: 10px;
-    width: 479px;
+    width: 100%;
     height: 54px;
     box-shadow: 0 0 6px -3px;
     font-family: "Roboto", sans-serif !important;
@@ -36,7 +37,7 @@
     font-size: 18px !important;
     margin-top: 15px;
     color: #9b9b9b;
-    width: 479px;
+    width: 100%;
     text-align: left;
 }
 
@@ -45,7 +46,7 @@
     border: none;
     background: $primary;
     color: white;
-    width: 479px;
+    width: 100%;
     height: 54px;
     font-family: "Roboto", sans-serif !important;
 }
@@ -62,6 +63,12 @@
 .form {
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
+    width: 479px;
+}
+
+@media (max-width: 520px) {
+    .form {
+        width: 300px;
+    }
 }

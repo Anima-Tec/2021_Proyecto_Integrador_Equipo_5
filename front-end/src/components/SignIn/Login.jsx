@@ -25,7 +25,7 @@ export default function Login() {
   return (
     <div className="container-fluid">
       <div className="row" style={{ height: '100vh' }}>
-        <div style={{ backgroundColor: '#f9fae9' }} className="col-6 d-flex justify-content-center align-items-center">
+        <div style={{ backgroundColor: '#f9fae9' }} className="d-none d-sm-flex d-sm-none d-md-flex col d-flex justify-content-center align-items-center">
           <div>
             <svg width="auto" height="552" viewBox="0 0 793 552" fill="none">
               <g clipPath="url(#clip0)">
@@ -97,7 +97,7 @@ export default function Login() {
             </svg>
           </div>
         </div>
-        <div className="col-6 d-flex justify-content-center align-items-center">
+        <div className="col d-flex justify-content-center align-items-center">
           <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
             <div>
               <h1 className={styles.title}>Iniciar sesión</h1>
