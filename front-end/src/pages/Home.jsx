@@ -1,12 +1,8 @@
 import React from 'react';
+import Inicio from '../components/Home/Home';
 
 const Home = () => (
-  <div>
-    <h1>Incio</h1>
-    <p>
-      Seccion inicio.
-    </p>
-  </div>
+  <Inicio />
 );
 
 export default Home;
