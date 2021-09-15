@@ -85,6 +85,10 @@
   text-decoration: none;
 }
 
+.link:hover {
+  color: $secundary;
+}
+
 .form {
   display: flex;
   justify-content: center;

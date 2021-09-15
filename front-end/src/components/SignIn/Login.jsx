@@ -55,6 +55,7 @@ export default function Login() {
                   className={styles.input}
                   placeholder="Ingrese su email"
                   name="email"
+                  autoComplete="off"
                   /*                   onChange={(e) => setEmail(e.target.value)} */
                   {...register('email')}
                 />
