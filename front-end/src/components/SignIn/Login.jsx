@@ -1,17 +1,19 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React/* , { useState } */ from 'react';
+import React /* , { useState } */ from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Link } from 'react-router-dom';
-/* import SessionController from '../../networking/controllers/SessionController';
- */import styles from './Login.module.scss';
+import { useHistory, Link } from 'react-router-dom';
+import SessionController from '../../networking/controllers/SessionController';
+import styles from './Login.module.scss';
 import Ilustration from '../../assets/images/login.svg';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Login() {
+  const history = useHistory();
+
   const schema = yup.object().shape({
     email: yup.string().email('Email invalido').required('Campo requerido'),
     password: yup.string().required('Campo requerido'),
@@ -24,15 +26,10 @@ export default function Login() {
     resolver: yupResolver(schema),
   });
 
-  /*   const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      SessionController.login(email, password);
-    }; */
-
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    await SessionController.login(data.email, data.password);
+    history.push('/inicio');
+  };
 
   return (
     <div className="container-fluid">
@@ -56,7 +53,6 @@ export default function Login() {
                   placeholder="Ingrese su email"
                   name="email"
                   autoComplete="off"
-                  /*                   onChange={(e) => setEmail(e.target.value)} */
                   {...register('email')}
                 />
               </p>
@@ -70,7 +66,6 @@ export default function Login() {
                   placeholder="Ingrese su contraseña"
                   name="password"
                   type="password"
-                  /*                   onChange={(e) => setPassword(e.target.value)} */
                   {...register('password')}
                 />
               </p>
