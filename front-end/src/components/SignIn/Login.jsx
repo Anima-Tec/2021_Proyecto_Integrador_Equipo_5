@@ -1,12 +1,12 @@
-/* eslint-disable no-console */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
+import React/* , { useState } */ from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Link } from 'react-router-dom';
-import styles from './Login.module.scss';
+/* import SessionController from '../../networking/controllers/SessionController';
+ */import styles from './Login.module.scss';
 import Ilustration from '../../assets/images/login.svg';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -24,14 +24,22 @@ export default function Login() {
     resolver: yupResolver(schema),
   });
 
+  /*   const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      SessionController.login(email, password);
+    }; */
+
   const onSubmit = (data) => console.log(data);
 
   return (
     <div className="container-fluid">
       <div className="row" style={{ height: '100vh' }}>
         <div
-          style={{ backgroundColor: '#f9fae9' }}
-          className="col d-none d-sm-flex d-sm-none d-md-flex d-flex justify-content-center align-items-center"
+          style={{ backgroundColor: '#F9FAE9' }}
+          className="col d-none d-sm-flex d-sm-none d-md-flex d-flex d-md-none d-lg-flex justify-content-center align-items-center"
         >
           <img src={Ilustration} alt="Ilustración" className={styles.img} />
         </div>
@@ -47,6 +55,8 @@ export default function Login() {
                   className={styles.input}
                   placeholder="Ingrese su email"
                   name="email"
+                  autoComplete="off"
+                  /*                   onChange={(e) => setEmail(e.target.value)} */
                   {...register('email')}
                 />
               </p>
@@ -60,13 +70,14 @@ export default function Login() {
                   placeholder="Ingrese su contraseña"
                   name="password"
                   type="password"
+                  /*                   onChange={(e) => setPassword(e.target.value)} */
                   {...register('password')}
                 />
               </p>
               <p className={styles.error}>{errors.password?.message}</p>
             </div>
             <button className={styles.button} type="submit">
-              INGRESAR
+              <span>INGRESAR </span>
             </button>
             <p className={styles.p}>
               Eres nuevo?
