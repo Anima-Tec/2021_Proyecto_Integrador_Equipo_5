@@ -11,8 +11,7 @@ class Client extends Model
 
     protected $fillable = [
         'user_id',
-        'height',
-        'weight'
+        'imc_id'
     ];
 
     public function user()

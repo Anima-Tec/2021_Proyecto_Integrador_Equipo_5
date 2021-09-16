@@ -14,20 +14,14 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'last_name',
-        'phone',
         'date_birth',
-        'profile_picture',
+        'email',
         'role',
         'client_id',
         'adviser_id',
         'password',
         'password_confirmation'
     ];
-
-    public function comments()
-    {
-        return $this->hasMany(Comment::class);
-    }
 
     public function client()
     {

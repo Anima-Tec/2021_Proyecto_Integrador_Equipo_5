@@ -25,7 +25,6 @@ class ClientFactory extends Factory
      */
     public function definition()
     {
-        dd(User::where('role', 'Client')->distinct());
         $client = Client::create([
             'user_id' => User::where('role', 'Client')->distinct()->get()
         ]);

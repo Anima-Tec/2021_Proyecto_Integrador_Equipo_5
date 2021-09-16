@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::factory()->times(10)->create();
-        Client::factory()->times(User::where('role', 'Client')->count())->create();
+        // Client::factory()->times(User::where('role', 'Client')->count())->create();
         // Imc::factory()->times(Client::all()->count())->create();
         // Adviser::factory()->times(10)->create();
         // Comment::factory()->times(10)->create();

@@ -9,6 +9,13 @@ class Imc extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'client_id',
+        'height',
+        'weight',
+        'value',
+    ];
+
     public function client()
     {
         return $this->belongsTo(Client::class);

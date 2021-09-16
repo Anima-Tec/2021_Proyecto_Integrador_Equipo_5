@@ -31,6 +31,8 @@ class CreateImcsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('imcs');
+        Schema::table('imcs', function (Blueprint $table) {
+            $table->dropIfExists('imcs');
+        });
     }
 }

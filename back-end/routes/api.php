@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::apiResource('user', App\Http\Controllers\UserController::class);
-Route::apiResource('comment', App\Http\Controllers\CommentController::class);
+// Public routes
+Route::post('register', [AuthController::class, 'register']);
+Route::post('login', [AuthController::class, 'login']);
+Route::apiResource('users', App\Http\Controllers\API\UserController::class);
+
+// Protected routes
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::post('logout', [AuthController::class, 'logout']);
+});
+Route::post('/reset', function() {
+    return Artisan::call('migrate:fresh');    
+});
