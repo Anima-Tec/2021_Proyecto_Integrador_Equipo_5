@@ -2,8 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Adviser;
+use App\Models\Client;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 class UserFactory extends Factory
@@ -22,26 +25,19 @@ class UserFactory extends Factory
      */
     public function definition()
     {
-        return [
-            'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
-        ];
-    }
-
-    /**
-     * Indicate that the model's email address should be unverified.
-     *
-     * @return \Illuminate\Database\Eloquent\Factories\Factory
-     */
-    public function unverified()
-    {
-        return $this->state(function (array $attributes) {
-            return [
-                'email_verified_at' => null,
-            ];
-        });
+        $user_roles = ['Client', 'Adviser'];
+        $user = User::create([
+            'name' => $this->faker->firstName(),
+            'last_name' => $this->faker->lastName(),
+            'date_birth' => '2003-12-30',
+            'role' => $role = $user_roles[rand(0,1)],
+            'email' => $this->faker->unique()->safeEmail,
+            'password' => Hash::make(Str::random(8)),
+        ]);
+        if ($role == 'Client') {
+            $user->client()->save(Client::factory()->create());
+        }else {
+            $user->adviser()->save(Adviser::factory()->create());
+        }
     }
 }
