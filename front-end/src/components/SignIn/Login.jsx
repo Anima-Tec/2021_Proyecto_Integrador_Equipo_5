@@ -28,7 +28,7 @@ export default function Login() {
 
   const onSubmit = async (data) => {
     await SessionController.login(data.email, data.password);
-    history.push('/inicio');
+    history.push('/test');
   };
 
   return (

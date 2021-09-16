@@ -59,7 +59,7 @@
 }
 
 .button span:after {
-  content: '\00bb';
+  content: url(../../assets/images/content-button.svg);
   position: absolute;
   opacity: 0;
   top: 0;
