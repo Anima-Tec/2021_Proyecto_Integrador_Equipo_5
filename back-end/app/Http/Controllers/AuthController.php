@@ -18,8 +18,8 @@ class AuthController extends Controller
             'last_name' => 'required|string',
             'email' => 'required|string|unique:users,email',
             'date_birth' => 'required|date',
-            'height' => 'required|integer',
-            'weight' => 'required|integer',
+            /* 'height' => 'required|integer',
+            'weight' => 'required|integer', */
             'password' => 'required|string|confirmed'
         ]);
 
@@ -31,7 +31,7 @@ class AuthController extends Controller
             'password' => bcrypt($fields['password'])
         ]);
 
-        $user->client()->create([
+        /* $user->client()->create([
             'user_id' => $user->id,
             'imc_id' => Imc::create([
                 'client_id' => $this->id,
@@ -40,7 +40,7 @@ class AuthController extends Controller
                 'value' => $this->calculate_imc($fields['height'], $fields['weight']),
             ])
         ]);
-
+ */
         $token = $user->createToken('user_token')->plainTextToken;
 
         $response = [
