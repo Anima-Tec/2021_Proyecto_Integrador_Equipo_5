@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Home from '../pages/Home';
 import Login from '../pages/SignIn';
 import Test from '../pages/Test';
-import NavBar from '../components/NavBar';
+import NavBar from '../components/navbar/NavBar';
 
 import NavRouter from './NavRoutes';
 
