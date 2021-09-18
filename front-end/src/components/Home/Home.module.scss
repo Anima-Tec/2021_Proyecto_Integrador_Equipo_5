@@ -1,2 +1,39 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
-@import "../../assets/stylesheets/colors.scss";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import '../../assets/stylesheets/colors.scss';
+
+.title {
+  font-family: 'Open Sans', sans-serif;
+  color: $font;
+  font-size: 40px;
+  margin-bottom: 35px;
+  width: 100%;
+}
+
+.body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: lighter;
+  font-size: 20px;
+  color: $font;
+  text-align: justify;
+}
+
+.button {
+  border-radius: 10px 0px 10px 10px !important;
+  border: none;
+  background: $primary;
+  color: white;
+  width: 215px;
+  height: 54px;
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: bold;
+  margin-top: 35px;
+}
+
+.button::after {
+  content: url(../../assets/images/content-button.svg);
+  padding-left: 7px;
+}
+
+.img {
+  width: inherit;
+}

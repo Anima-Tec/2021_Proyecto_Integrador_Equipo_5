@@ -4,7 +4,7 @@ import TokenService from '../tokenService';
 
 class SessionController {
   static async login(email, password) {
-    const response = await axios.post(generateBackendURL('/auth/signin'), {
+    const response = await axios.post(generateBackendURL('login'), {
       email,
       password,
     });

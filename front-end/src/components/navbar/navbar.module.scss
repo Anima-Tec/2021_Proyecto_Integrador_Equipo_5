@@ -1,14 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 @import '../../assets/stylesheets/colors.scss';
 
-.navbar{
+.navbar {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  padding: 42px 320px;
   align-items: center;
 }
-.nogrow{
+.nogrow {
   flex-grow: 0;
 }
 
@@ -19,12 +18,10 @@
   position: relative;
   top: 11px;
   padding-right: 35px;
-  
 }
 .button {
   color: $primary;
-  border-radius: 4px;
-  border-color: $primary;
+  border: 2px solid $primary;
   width: 218px;
   height: 57px;
   transition-duration: 0.4s;
