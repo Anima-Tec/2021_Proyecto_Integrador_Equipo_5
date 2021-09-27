@@ -6,7 +6,12 @@
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
 }
+
 .nogrow {
   flex-grow: 0;
 }
@@ -19,14 +24,17 @@
   top: 11px;
   padding-right: 35px;
 }
+
 .button {
   color: $primary;
   border: 2px solid $primary;
-  width: 218px;
-  height: 57px;
+  width: 180px;
+  height: 50px;
   transition-duration: 0.4s;
   background: white;
+  border-radius: 5px;
 }
+
 .button:hover {
   background-color: $primary;
   color: white;

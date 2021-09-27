@@ -8,6 +8,7 @@ import { useHistory, Link } from 'react-router-dom';
 import SessionController from '../../networking/controllers/SessionController';
 import styles from './Login.module.scss';
 import Ilustration from '../../assets/images/login.svg';
+import 'animate.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -38,7 +39,7 @@ export default function Login() {
           style={{ backgroundColor: '#F9FAE9' }}
           className="col d-none d-sm-flex d-sm-none d-md-flex d-flex d-md-none d-lg-flex justify-content-center align-items-center"
         >
-          <img src={Ilustration} alt="Ilustración" className={styles.img} />
+          <img src={Ilustration} alt="Ilustración" className={`animate__bounceIn ${styles.img}`} />
         </div>
         <div className="col d-flex justify-content-center align-items-center">
           <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
