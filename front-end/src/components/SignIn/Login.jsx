@@ -23,13 +23,18 @@ export default function Login() {
     register,
     handleSubmit,
     formState: { errors },
+    setError,
   } = useForm({
     resolver: yupResolver(schema),
   });
 
   const onSubmit = async (data) => {
-    await SessionController.login(data.email, data.password);
-    history.push('/test');
+    try {
+      await SessionController.login(data.email, data.password);
+      history.push('/test');
+    } catch (error) {
+      setError('general', { message: error.message });
+    }
   };
 
   return (
@@ -82,6 +87,7 @@ export default function Login() {
                 Realizar test
               </Link>
             </p>
+            <p className={styles.error}>{errors.general?.message}</p>
           </form>
         </div>
       </div>
