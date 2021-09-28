@@ -29,7 +29,7 @@ const NavBar = () => {
   return (
     <nav className={`navbar navbar-expand-lg navbar-light ${styles.navbar}`}>
       <Link to="/inicio">
-        <img src={Logo} width="147" height="50" alt="logo" />
+        <img className={styles.logo} src={Logo} width="147" height="50" alt="logo" />
       </Link>
       <button
         className="navbar-toggler "

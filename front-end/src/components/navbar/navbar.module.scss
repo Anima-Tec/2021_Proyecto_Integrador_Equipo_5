@@ -12,6 +12,10 @@
   margin-top: 20px;
 }
 
+.logo {
+  pointer-events: none;
+}
+
 .nogrow {
   flex-grow: 0;
 }
