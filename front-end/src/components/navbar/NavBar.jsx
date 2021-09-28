@@ -27,7 +27,7 @@ const NavBar = () => {
     window.addEventListener('resize', toggleOnResize);
   }, []);
   return (
-    <nav className={`navbar navbar-expand-lg navbar-light  ${styles.navbar}`}>
+    <nav className={`navbar navbar-expand-lg navbar-light ${styles.navbar}`}>
       <Link to="/inicio">
         <img src={Logo} width="147" height="50" alt="logo" />
       </Link>
@@ -48,7 +48,7 @@ const NavBar = () => {
           <label className={styles.label}>¿Ya tienes una cuenta creada?</label>
           <Link to="/login">
             <button className={styles.button} type="submit">
-              INICIAR SESION
+              INICIAR SESIÓN
             </button>
           </Link>
         </form>
