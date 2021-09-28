@@ -1,0 +1,271 @@
+{
+	"info": {
+		"_postman_id": "cbfcb06a-9e29-48b2-b3f1-8c9fc27c24a0",
+		"name": "Kiwi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register"
+					],
+					"query": [
+						{
+							"key": "contrasena_confirmacion",
+							"value": "12345678",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "register",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Ezequiel"
+								},
+								{
+									"key": "last_name",
+									"value": "Padilla"
+								},
+								{
+									"key": "email",
+									"value": "ezequiel.padilla.m@gmail.com"
+								},
+								{
+									"key": "date_birth",
+									"value": "2003-05-12"
+								},
+								{
+									"key": "height",
+									"value": "175",
+									"disabled": true
+								},
+								{
+									"key": "weight",
+									"value": "80",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "12345678"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "12345678"
+								},
+								{
+									"key": "client_id",
+									"value": "0",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/register/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register",
+								""
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"user\": {\n        \"name\": \"Jose\",\n        \"last_name\": \"Pareci\",\n        \"email\": \"jose.pareci@gmail.com\",\n        \"date_birth\": \"2009-08-20\",\n        \"password\": \"$2y$10$VUvt4n3sdPRFkn0jbpwFnOgIX2Z0HwzJhFjC.Z5Hv2HNjOaVF9hEq\",\n        \"updated_at\": \"2021-09-28T12:05:27.000000Z\",\n        \"created_at\": \"2021-09-28T12:05:27.000000Z\",\n        \"id\": 2\n    },\n    \"client\": {},\n    \"token\": \"8|MZmc4ipEV05YUhT2V22DfbOoEhHI4juj0DNEC9yu\"\n}"
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/login/?email=ezequiel.padilla@anima.edu.uy&password=12345678",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login",
+						""
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "ezequiel.padilla@anima.edu.uy"
+						},
+						{
+							"key": "password",
+							"value": "12345678"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/login/?email=ezequiel.padilla@anima.edu.uy&password=12345678",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login",
+								""
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "ezequiel.padilla@anima.edu.uy"
+								},
+								{
+									"key": "password",
+									"value": "12345678"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "reset",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/reset",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"reset"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|6xC6lPBck8zp2XZ2W4anFO8HJpOLgh2fCMMe6Mfj",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/logout/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"logout",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
