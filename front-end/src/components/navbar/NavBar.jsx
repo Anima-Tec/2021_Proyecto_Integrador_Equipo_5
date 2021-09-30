@@ -25,7 +25,7 @@ const NavBar = () => {
 
   useEffect(() => {
     window.addEventListener('resize', toggleOnResize);
-  }, []);
+  });
   return (
     <nav className={`navbar navbar-expand-lg navbar-light ${styles.navbar}`}>
       <Link to="/inicio">

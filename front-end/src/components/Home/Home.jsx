@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Home.module.scss';
 import Ilustration from '../../assets/images/home.svg';
+import 'animate.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -24,7 +25,7 @@ export default function Home() {
           </Link>
         </div>
         <div className="col d-none d-sm-flex d-sm-none d-md-flex d-flex  d-lg-flex justify-content-center align-items-center">
-          <img src={Ilustration} alt="Ilustración" className={styles.img} />
+          <img src={Ilustration} alt="Ilustración" className={`animate__bounceIn ${styles.img}`} />
         </div>
       </div>
     </div>

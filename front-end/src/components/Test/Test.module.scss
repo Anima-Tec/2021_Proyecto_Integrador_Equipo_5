@@ -5,8 +5,9 @@
   font-family: 'Open Sans', sans-serif;
   color: $font;
   font-size: 40px;
-  margin-bottom: 35px;
+  margin: 20px;
   width: 100%;
+  text-align: center;
 }
 
 .body {
@@ -22,16 +23,35 @@
   border: none;
   background: $primary;
   color: white;
-  width: 215px;
+  width: 100px;
   height: 54px;
-  font-family: 'Roboto', sans-serif !important;
-  font-weight: bold;
-  margin-top: 35px;
+  font-family: "Roboto", sans-serif !important;
+  margin: 5px;
 }
 
-.button::after {
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
   content: url(../../assets/images/content-button.svg);
-  padding-left: 7px;
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -50px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 15px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 
 .img {

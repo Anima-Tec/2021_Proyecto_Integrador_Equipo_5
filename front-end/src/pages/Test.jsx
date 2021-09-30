@@ -1,12 +1,6 @@
 import React from 'react';
+import Register from '../components/Test/test_1';
 
-const Test = () => (
-  <div>
-    <h1>Test</h1>
-    <p>
-      Seccion Test.
-    </p>
-  </div>
-);
+const Test = () => <Register />;
 
 export default Test;
