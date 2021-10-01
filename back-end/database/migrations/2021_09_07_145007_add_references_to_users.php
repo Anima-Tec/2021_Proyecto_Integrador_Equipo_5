@@ -14,10 +14,15 @@ class AddReferencesToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unsignedBigInteger('client_id')->nullable();
-            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
-            $table->unsignedBigInteger('adviser_id')->nullable();
-            $table->foreign('adviser_id')->references('id')->on('advisers')->onDelete('cascade');
+            $table->foreignId('client_id')
+                  ->nullable()
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
+
+            $table->foreignId('adviser_id')
+                  ->nullable()
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
         });
     }
 }

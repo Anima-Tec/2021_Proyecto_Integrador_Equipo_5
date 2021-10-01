@@ -15,9 +15,11 @@ class CreateAdvisersTable extends Migration
     {
         Schema::create('advisers', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');;
-            $table->enum('role', ['Psychologist', 'Nutritionist']);
+            $table->foreignId('user_id')
+                  ->constrained()
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
+            $table->enum('role', ['PSYCHOLOGIST', 'NUTRITIONIST']);
             $table->timestamps();
         });
     }
