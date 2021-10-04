@@ -73,3 +73,11 @@
   outline: none;
   border: none;
 }
+
+.error {
+  font-family: $body !important;
+  font-size: 15px !important;
+  color: #ff0000;
+  width: 100%;
+  text-align: left;
+}

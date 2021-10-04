@@ -89,16 +89,12 @@
 }
 
 .form {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
   width: 479px;
 }
 
 .error {
   font-family: $body !important;
   font-size: 15px !important;
-  margin-top: 15px;
   color: #ff0000;
   width: 100%;
   text-align: left;

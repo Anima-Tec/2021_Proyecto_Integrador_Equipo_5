@@ -4,7 +4,7 @@ import Home from '../pages/Home';
 import Login from '../pages/SignIn';
 import Test from '../pages/Test';
 import NavBar from '../components/navbar/NavBar';
-import Register from '../components/Test/Register/Register';
+import Register from '../components/Test/Register/Register_1';
 
 import NavRouter from './NavRoutes';
 
