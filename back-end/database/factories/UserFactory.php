@@ -25,19 +25,14 @@ class UserFactory extends Factory
      */
     public function definition()
     {
-        $user_roles = ['Client', 'Adviser'];
-        $user = User::create([
+        $user_roles = ['CLIENT', 'ADVISER'];
+        return [
             'name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName(),
             'date_birth' => '2003-12-30',
-            'role' => $role = $user_roles[rand(0,1)],
+            'role' => $user_roles[rand(0, 1)],
             'email' => $this->faker->unique()->safeEmail,
-            'password' => Hash::make(Str::random(8)),
-        ]);
-        if ($role == 'Client') {
-            $user->client()->save(Client::factory()->create());
-        }else {
-            $user->adviser()->save(Adviser::factory()->create());
-        }
+            'password' => Hash::make(12345678),
+        ];
     }
 }

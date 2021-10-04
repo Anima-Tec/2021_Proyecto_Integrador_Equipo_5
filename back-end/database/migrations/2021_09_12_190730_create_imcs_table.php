@@ -15,8 +15,10 @@ class CreateImcsTable extends Migration
     {
         Schema::create('imcs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('client_id');
-            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+            $table->foreignId('client_id')
+                  ->constrained()
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
             $table->integer('height');
             $table->integer('weight');
             $table->decimal('value')->nullable();

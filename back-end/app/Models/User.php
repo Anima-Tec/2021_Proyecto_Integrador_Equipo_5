@@ -23,6 +23,12 @@ class User extends Authenticatable
         'password_confirmation'
     ];
 
+    protected $hidden = [
+        'password',
+        'password_confirmation',
+        'remember_token'
+    ];
+
     public function client()
     {
         return $this->hasOne(Client::class);

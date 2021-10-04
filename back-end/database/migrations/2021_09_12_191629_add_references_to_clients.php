@@ -14,8 +14,10 @@ class AddReferencesToClients extends Migration
     public function up()
     {
         Schema::table('clients', function (Blueprint $table) {
-            $table->unsignedBigInteger('imc_id')->nullable();
-            $table->foreign('imc_id')->references('id')->on('imcs')->onDelete('cascade');
+            $table->foreignId('imc_id')
+                  ->nullable()
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
         });
     }
 }

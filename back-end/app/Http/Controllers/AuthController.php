@@ -18,9 +18,9 @@ class AuthController extends Controller
             'last_name' => 'required|string',
             'email' => 'required|string|unique:users,email',
             'date_birth' => 'required|date',
-            /* 'height' => 'required|integer',
-            'weight' => 'required|integer', */
-            'password' => 'required|string|confirmed'
+            'role_user' => 'required|string',
+            'role_adviser' => 'string',
+            'password' => 'required|string|confirmed|min:8'
         ]);
 
         $user = User::create([
@@ -28,19 +28,27 @@ class AuthController extends Controller
             'last_name' => $fields['last_name'],
             'email' => $fields['email'],
             'date_birth' => $fields['date_birth'],
+            'role' => $fields['role_user'],
             'password' => bcrypt($fields['password'])
         ]);
 
-        /* $user->client()->create([
-            'user_id' => $user->id,
-            'imc_id' => Imc::create([
-                'client_id' => $this->id,
-                'height' => $fields['height'],
-                'weight' => $fields['weight'],
-                'value' => $this->calculate_imc($fields['height'], $fields['weight']),
-            ])
-        ]);
- */
+        switch ($fields['role']) {
+            case 'client':
+                $user->client()->create([
+                    'user_id' => $user->id,
+                ]);
+                break;
+
+            case 'adviser':
+                $user->adviser()->create([
+                    'user_id' => $user->id,
+                    'role' => $fields['role_adviser']
+                ]);
+                break;
+            default:
+                return $this->sendError('Error');
+        }
+
         $token = $user->createToken('user_token')->plainTextToken;
 
         $response = [
