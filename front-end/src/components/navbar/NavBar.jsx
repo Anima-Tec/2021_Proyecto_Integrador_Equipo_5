@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/images/logo.svg';
 import styles from './navbar.module.scss';
@@ -8,6 +9,9 @@ import styles from './navbar.module.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const NavBar = () => {
+  const [isLogged, setIsLogged] = useState(false);
+  const authToken = (localStorage.getItem('user') || null);
+
   let { current: toggleRef } = useRef();
   function toggleOnResize() {
     if (window.innerWidth < 1000) {
@@ -26,6 +30,11 @@ const NavBar = () => {
   useEffect(() => {
     window.addEventListener('resize', toggleOnResize);
   });
+
+  useEffect(() => {
+    authToken ? setIsLogged(true) : setIsLogged(false);
+  }, [authToken]);
+
   return (
     <nav className={`navbar navbar-expand-lg navbar-light ${styles.navbar}`}>
       <Link to="/inicio">
@@ -44,14 +53,20 @@ const NavBar = () => {
         <span className="navbar-toggler-icon" />
       </button>
       <div className={`collapse navbar-collapse ${styles.nogrow}`} id="navbarSupportedContent">
-        <form className="form-inline d-flex my-2 my-lg-0 d-flex">
-          <label className={styles.label}>¿Ya tienes una cuenta creada?</label>
-          <Link to="/login">
-            <button className={styles.button} type="submit">
-              INICIAR SESIÓN
-            </button>
-          </Link>
-        </form>
+        {isLogged ? (
+          <form className="form-inline d-flex my-2 my-lg-0 d-flex">
+            <label className={styles.message}>Welcome Back!</label>
+          </form>
+        ) : (
+          <form className="form-inline d-flex my-2 my-lg-0 d-flex">
+            <label className={styles.label}>¿Ya tienes una cuenta creada?</label>
+            <Link to="/login">
+              <button className={styles.button} type="submit">
+                INICIAR SESIÓN
+              </button>
+            </Link>
+          </form>
+        )}
       </div>
     </nav>
   );
