@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useHistory, Link } from 'react-router-dom';
-import SessionController from '../../networking/controllers/SessionController';
+import SessionController from '../../networking/controllers/UserController';
 import styles from './Login.module.scss';
 import Spinner from '../Spinner/Spinner';
 import Ilustration from '../../assets/images/login.svg';
@@ -87,8 +87,8 @@ export default function Login() {
             <p className={styles.p}>
               Eres nuevo?
               {' '}
-              <Link to="/test" className={styles.link}>
-                Realizar test
+              <Link to="/register" className={styles.link}>
+                Registrarse
               </Link>
             </p>
             <p className={styles.error}>{errors.general?.message}</p>

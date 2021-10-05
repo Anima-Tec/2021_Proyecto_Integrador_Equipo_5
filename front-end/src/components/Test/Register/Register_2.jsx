@@ -18,8 +18,13 @@ export default function Register() {
   const history = useHistory();
 
   const schema = yup.object().shape({
-    name: yup.string().required('Campo requerido'),
-    surname: yup.string().required('Campo requerido'),
+    email: yup.string().email('Email invalido').required('Campo requerido'),
+    birth: yup.string()
+      .required('Campo requerido')
+      .matches(
+        /^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/,
+        'Date of Birth must be a valid date in the format YYYY-MM-DD',
+      ),
   });
 
   const {
@@ -33,8 +38,8 @@ export default function Register() {
 
   const onSubmit = async (data) => {
     try {
-      await SessionController.register(data.name, data.surname);
-      history.push('/register2');
+      await SessionController.register(data.email);
+      history.push('/register3');
     } catch (error) {
       setError('general', { message: error.message });
     }
@@ -52,22 +57,23 @@ export default function Register() {
             <p>
               <input
                 className={styles.input}
-                placeholder="Nombre"
-                name="name"
+                placeholder="Email"
+                name="email"
                 autoComplete="off"
-                {...register('name')}
+                {...register('email')}
               />
-              <span className={styles.error}>{errors.name?.message}</span>
+              <span className={styles.error}>{errors.email?.message}</span>
             </p>
             <p>
               <input
                 className={styles.input}
-                placeholder="Apellido"
-                name="surname"
+                placeholder="Birth"
+                name="birth"
+                type="date"
                 autoComplete="off"
-                {...register('surname')}
+                {...register('birth')}
               />
-              <span className={styles.error}>{errors.surname?.message}</span>
+              <span className={styles.error}>{errors.birth?.message}</span>
             </p>
             <button className={styles.button} type="submit">
               <span>CONTINUAR </span>

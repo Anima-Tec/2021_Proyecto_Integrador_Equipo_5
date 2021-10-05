@@ -18,8 +18,14 @@ export default function Register() {
   const history = useHistory();
 
   const schema = yup.object().shape({
-    name: yup.string().required('Campo requerido'),
-    surname: yup.string().required('Campo requerido'),
+    password: yup
+      .string()
+      .min(8, 'Debe tener más de 8 caracteres')
+      .required('Campo requerido'),
+    confirmPassword: yup
+      .string()
+      .oneOf([yup.ref('password'), null], 'Las contraseñas no coinciden')
+      .required('Confirmar contraseña es requerido'),
   });
 
   const {
@@ -33,8 +39,8 @@ export default function Register() {
 
   const onSubmit = async (data) => {
     try {
-      await SessionController.register(data.name, data.surname);
-      history.push('/register2');
+      await SessionController.register(data.password, data.confirmPassword);
+      history.push('/');
     } catch (error) {
       setError('general', { message: error.message });
     }
@@ -52,22 +58,24 @@ export default function Register() {
             <p>
               <input
                 className={styles.input}
-                placeholder="Nombre"
-                name="name"
+                placeholder="Contraseña"
+                type="password"
+                name="password"
                 autoComplete="off"
-                {...register('name')}
+                {...register('password')}
               />
-              <span className={styles.error}>{errors.name?.message}</span>
+              <span className={styles.error}>{errors.password?.message}</span>
             </p>
             <p>
               <input
                 className={styles.input}
-                placeholder="Apellido"
-                name="surname"
+                placeholder="Confirmar contraseña"
+                type="password"
+                name="confirmPassword"
                 autoComplete="off"
-                {...register('surname')}
+                {...register('confirmPassword')}
               />
-              <span className={styles.error}>{errors.surname?.message}</span>
+              <span className={styles.error}>{errors.confirmPassword?.message}</span>
             </p>
             <button className={styles.button} type="submit">
               <span>CONTINUAR </span>
