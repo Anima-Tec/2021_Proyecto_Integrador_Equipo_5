@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->date('date_birth');
-            $table->enum('role', ['Client', 'Adviser'])->default('Client');
+            $table->enum('role', ['CLIENT', 'ADVISER'])->default('CLIENT');
             $table->bigInteger('active')->default('1');
             $table->timestamps();
         });

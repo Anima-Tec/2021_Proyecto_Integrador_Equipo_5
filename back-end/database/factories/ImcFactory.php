@@ -22,10 +22,10 @@ class ImcFactory extends Factory
      */
     public function definition()
     {
-        Imc::create([
-            'client_id' => Client::all()->distinct()->id,
+        return [
             'height' => rand(100, 220),
-            'weight' => rand(20, 200)
-        ]);
+            'weight' => rand(20, 200),
+            'value' => 24,
+        ];
     }
 }
