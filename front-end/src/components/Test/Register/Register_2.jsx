@@ -15,16 +15,15 @@ import profile from '../../../assets/images/profile.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Register() {
+  document.title = 'kiwi - registro';
   const history = useHistory();
 
   const schema = yup.object().shape({
     email: yup.string().email('Email invalido').required('Campo requerido'),
-    birth: yup.string()
+    birth: yup
+      .string()
       .required('Campo requerido')
-      .matches(
-        /^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/,
-        'Date of Birth must be a valid date in the format YYYY-MM-DD',
-      ),
+      .matches(/^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/, 'Fecha de nacimiento inválida'),
   });
 
   const {
@@ -71,6 +70,8 @@ export default function Register() {
                 name="birth"
                 type="date"
                 autoComplete="off"
+                onFocus="(this.type='date')"
+                onBlur="if(this.value==''){this.type='text'}"
                 {...register('birth')}
               />
               <span className={styles.error}>{errors.birth?.message}</span>

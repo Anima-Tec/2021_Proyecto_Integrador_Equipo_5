@@ -15,6 +15,7 @@ import profile from '../../../assets/images/profile.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Register() {
+  document.title = 'kiwi - registro';
   const history = useHistory();
 
   const schema = yup.object().shape({

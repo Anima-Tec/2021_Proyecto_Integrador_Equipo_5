@@ -3,14 +3,16 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Dropdown from 'react-bootstrap/Dropdown';
 import Logo from '../../assets/images/logo.svg';
 import styles from './navbar.module.scss';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const NavBar = () => {
+  const user = localStorage.key('user');
   const [isLogged, setIsLogged] = useState(false);
-  const authToken = (localStorage.getItem('user') || null);
+  const authToken = localStorage.getItem('user') || null;
 
   let { current: toggleRef } = useRef();
   function toggleOnResize() {
@@ -55,7 +57,16 @@ const NavBar = () => {
       <div className={`collapse navbar-collapse ${styles.nogrow}`} id="navbarSupportedContent">
         {isLogged ? (
           <form className="form-inline d-flex my-2 my-lg-0 d-flex">
-            <label className={styles.message}>Welcome Back!</label>
+            <Dropdown>
+              <Dropdown.Toggle className={styles.user} variant="success" id="dropdown-basic">
+                <label className={styles.message}>Hola,</label>
+                <label className={styles.message}>{user}</label>
+                {' '}
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item className={styles.dropdown}>Cerrar sesión</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </form>
         ) : (
           <form className="form-inline d-flex my-2 my-lg-0 d-flex">

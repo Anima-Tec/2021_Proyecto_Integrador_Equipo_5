@@ -33,7 +33,6 @@
   font-size: 18px;
   color: #9b9b9b;
   position: relative;
-  padding-right: 35px;
 }
 
 .button {
@@ -49,4 +48,30 @@
 .button:hover {
   background-color: $primary;
   color: white;
+}
+
+// Styles options user
+.dropdown {
+  display: flex;
+}
+
+.user {
+  color: black !important;
+  background-color: white !important;
+  border-color: white !important;
+}
+
+.user:focus {
+  box-shadow: none !important;
+}
+
+.dropdown:hover {
+  color: black;
+  text-decoration: none;
+  background-color: #e9ecef !important;
+}
+
+.dropdown::before {
+  content: url(../../assets/images/options.svg);
+  padding-right: 10px;
 }
