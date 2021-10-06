@@ -35,6 +35,7 @@ export default function Login() {
       setLoading(true);
       await SessionController.login(data.email, data.password);
       history.push('/inicio');
+      window.location.reload();
     } catch (error) {
       setLoading(false);
       setError('general', { message: error.message });
