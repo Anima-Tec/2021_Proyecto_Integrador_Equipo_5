@@ -34,6 +34,7 @@
   color: #9b9b9b;
   position: relative;
   cursor: pointer;
+  text-transform: capitalize;
 }
 
 .button {
@@ -52,6 +53,10 @@
 }
 
 // Styles options user
+.contentDropdown{
+  border-radius: 10px;
+}
+
 .dropdown {
   display: flex;
 }

@@ -69,7 +69,7 @@ const NavBar = () => {
                 <label className={styles.message}>{name}</label>
                 {' '}
               </Dropdown.Toggle>
-              <Dropdown.Menu>
+              <Dropdown.Menu className={styles.contentDropdown}>
                 <Dropdown.Item className={styles.dropdown} onClick={logOut}>
                   Cerrar sesión
                 </Dropdown.Item>
