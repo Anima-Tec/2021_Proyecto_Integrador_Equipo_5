@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import { React } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import spinner from '../../assets/images/container.svg';
+import spinner from '../../assets/images/spinner.svg';
 import styles from './Spinner.module.scss';
 
 export default function Spinner() {
