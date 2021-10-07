@@ -7,6 +7,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useHistory, Link } from 'react-router-dom';
 import SessionController from '../../networking/controllers/UserController';
 import styles from './Login.module.scss';
+import back from '../../assets/images/return.png';
 import Spinner from '../Spinner/Spinner';
 import Ilustration from '../../assets/images/login.svg';
 import 'animate.css';
@@ -49,12 +50,21 @@ export default function Login() {
           style={{ backgroundColor: '#F9FAE9' }}
           className="col d-none d-sm-flex d-sm-none d-md-flex d-flex d-md-none d-lg-flex justify-content-center align-items-center"
         >
-          <img src={Ilustration} alt="Ilustración" className={`animate__animated animate__backInLeft ${styles.img}`} />
+          <img
+            src={Ilustration}
+            alt="Ilustración"
+            className={`animate__animated animate__backInLeft ${styles.img}`}
+          />
         </div>
         <div className="col d-flex justify-content-center align-items-center">
           <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
             <div>
-              <h1 className={styles.title}>Iniciar sesión</h1>
+              <div className="d-flex">
+                <Link to="/inicio">
+                  <img src={back} alt="volver" className={styles.return} />
+                </Link>
+                <h1 className={styles.title}>Iniciar sesión</h1>
+              </div>
               <p>
                 <label className={styles.label}>Email</label>
               </p>
