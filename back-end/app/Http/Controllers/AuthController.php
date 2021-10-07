@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Adviser;
+use App\Models\Client;
 use App\Models\Imc;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -9,7 +11,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
-class AuthController extends Controller
+class AuthController extends ApiController
 {
     public function register(Request $request)
     {
@@ -32,32 +34,46 @@ class AuthController extends Controller
             'password' => bcrypt($fields['password'])
         ]);
 
-        switch ($fields['role']) {
-            case 'client':
-                $user->client()->create([
+        $token = $user->createToken('user_token')->plainTextToken;
+
+        switch ($fields['role_user']) {
+            case 'CLIENT':
+                $client = $user->client()->create([
                     'user_id' => $user->id,
                 ]);
+
+                $user->client_id = $client->id;
+                $user->save();
+
+                $response = [
+                    'user' => $user,
+                    'client' => Client::find($client->id),
+                    'token' => $token
+                ];
+
+                Mail::to($user->email)->send(new \App\Mail\UserRegister($response));
                 break;
 
-            case 'adviser':
-                $user->adviser()->create([
+            case 'ADVISER':
+                $adviser = $user->adviser()->create([
                     'user_id' => $user->id,
                     'role' => $fields['role_adviser']
                 ]);
+
+                $user->adviser_id = $adviser->id;
+                $user->save();
+
+                $response = [
+                    'user' => $user,
+                    'adviser' => Adviser::find($adviser->id),
+                    'token' => $token
+                ];
+
+                Mail::to($user->email)->send(new \App\Mail\UserRegister($response));
                 break;
             default:
                 return $this->sendError('Error');
         }
-
-        $token = $user->createToken('user_token')->plainTextToken;
-
-        $response = [
-            'user' => $user,
-            'client' => $user->client(),
-            'token' => $token
-        ];
-
-        Mail::to($user->email)->send(new \App\Mail\UserRegister($response));
         return response($response, 201);
     }
 
