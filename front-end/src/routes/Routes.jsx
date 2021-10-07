@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 import React, { useEffect, useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import Home from '../pages/Home';
 import Login from '../pages/SignIn';
 import Test from '../pages/Test';
@@ -19,45 +19,45 @@ const Routes = () => {
     authToken ? setIsLogged(true) : setIsLogged(false);
   }, [authToken]);
 
-  return (
+  return isLogged ? (
     <Switch>
-      {isLogged ? (
-        <>
-          <NavRouter path="/inicio">
-            <NavBar />
-            <Home />
-          </NavRouter>
-        </>
-      ) : (
-        <>
-          <NavRouter path="/inicio">
-            <NavBar />
-            <Home />
-          </NavRouter>
-          <NavRouter path="/login">
-            <Login />
-          </NavRouter>
-          <NavRouter path="/test">
-            <NavBar />
-            <Test />
-          </NavRouter>
-          <NavRouter path="/register">
-            <NavBar />
-            <Register />
-          </NavRouter>
-          <NavRouter path="/register2">
-            <NavBar />
-            <Register2 />
-          </NavRouter>
-          <NavRouter path="/register3">
-            <NavBar />
-            <Register3 />
-          </NavRouter>
-        </>
-      )}
-      <Route path="/">
+      <Redirect from="/" to="/inicio" exact />
+      <NavRouter path="/inicio" exact>
         <NavBar />
         <Home />
+      </NavRouter>
+      <Route>
+        <Redirect to="/inicio" exact />
+      </Route>
+    </Switch>
+  ) : (
+    <Switch>
+      <Redirect from="/" to="/inicio" exact />
+      <NavRouter path="/inicio" exact>
+        <NavBar />
+        <Home />
+      </NavRouter>
+      <NavRouter path="/login" exact>
+        <Login />
+      </NavRouter>
+      <NavRouter path="/test" exact>
+        <NavBar />
+        <Test />
+      </NavRouter>
+      <NavRouter path="/register" exact>
+        <NavBar />
+        <Register />
+      </NavRouter>
+      <NavRouter path="/register2" exact>
+        <NavBar />
+        <Register2 />
+      </NavRouter>
+      <NavRouter path="/register3" exact>
+        <NavBar />
+        <Register3 />
+      </NavRouter>
+      <Route>
+        <Redirect to="/inicio" exact />
       </Route>
     </Switch>
   );
