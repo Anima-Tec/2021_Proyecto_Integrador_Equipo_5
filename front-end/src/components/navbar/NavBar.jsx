@@ -13,7 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const NavBar = () => {
   const [isLogged, setIsLogged] = useState(false);
   const authToken = localStorage.getItem('user') || null;
-  const name = localStorage.key('user');
+  const session = JSON.parse(localStorage.getItem('user')) || null;
 
   const logOut = () => {
     localStorage.removeItem('user');
@@ -66,7 +66,7 @@ const NavBar = () => {
             <Dropdown>
               <Dropdown.Toggle className={styles.user} variant="success" id="dropdown-basic">
                 <label className={styles.message}>Hola,</label>
-                <label className={styles.message}>{name}</label>
+                <label className={styles.message}>{session?.user?.name}</label>
                 {' '}
               </Dropdown.Toggle>
               <Dropdown.Menu className={styles.contentDropdown}>
