@@ -1,5 +1,13 @@
 @import '../../assets/stylesheets/variables.scss';
 
+.container {
+  width: 80% !important;
+}
+
+.row {
+  height: 80vh !important;
+}
+
 .title {
   font-family: $title;
   color: $font;
@@ -15,6 +23,10 @@
   text-align: justify;
 }
 
+.btnContainer {
+  width: fit-content;
+}
+
 .button {
   border-radius: 10px 0px 10px 10px !important;
   border: none;
@@ -22,15 +34,6 @@
   width: 215px;
   height: 54px;
   margin-top: 35px;
-}
-
-.a{
-  font-family: $body !important;
-  color: white;
-  text-decoration: none;
-}
-
-.a:hover{
   color: white;
 }
 
