@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "register",
+			"name": "registerClient",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -16,6 +16,40 @@
 						"type": "text"
 					}
 				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Ezequiel"
+						},
+						{
+							"key": "last_name",
+							"value": "Padilla"
+						},
+						{
+							"key": "email",
+							"value": "ezequiel.padilla.m@gmail.com"
+						},
+						{
+							"key": "date_birth",
+							"value": "2003-05-12"
+						},
+						{
+							"key": "password",
+							"value": "12345678"
+						},
+						{
+							"key": "role_user",
+							"value": "CLIENT",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "12345678"
+						}
+					]
+				},
 				"url": {
 					"raw": "http://127.0.0.1:8000/api/register",
 					"protocol": "http",
@@ -29,13 +63,142 @@
 					"path": [
 						"api",
 						"register"
-					],
-					"query": [
-						{
-							"key": "contrasena_confirmacion",
-							"value": "12345678",
-							"disabled": true
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "register",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Ezequiel"
+								},
+								{
+									"key": "last_name",
+									"value": "Padilla"
+								},
+								{
+									"key": "email",
+									"value": "ezequiel.padilla.m2@gmail.com"
+								},
+								{
+									"key": "date_birth",
+									"value": "2003-05-12"
+								},
+								{
+									"key": "password",
+									"value": "12345678"
+								},
+								{
+									"key": "role_user",
+									"value": "CLIENT",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "12345678"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/register/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register",
+								""
+							]
 						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"user\": {\n        \"name\": \"Ezequiel\",\n        \"last_name\": \"Padilla\",\n        \"email\": \"ezequiel.padilla.m@gmail.com\",\n        \"date_birth\": \"2003-05-12\",\n        \"role\": \"CLIENT\",\n        \"updated_at\": \"2021-10-05T00:36:44.000000Z\",\n        \"created_at\": \"2021-10-05T00:36:43.000000Z\",\n        \"id\": 47,\n        \"client_id\": 17\n    },\n    \"client\": {\n        \"id\": 27,\n        \"user_id\": 47,\n        \"created_at\": \"2021-10-05T00:36:43.000000Z\",\n        \"updated_at\": \"2021-10-05T00:36:43.000000Z\"\n    },\n    \"token\": \"3|IxZLgjWRSJxmUXfCxzmRreXvsq7kIyObqNciY90B\"\n}"
+				}
+			]
+		},
+		{
+			"name": "registerAdviser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Ezequiel"
+						},
+						{
+							"key": "last_name",
+							"value": "Padilla"
+						},
+						{
+							"key": "email",
+							"value": "ezequiel.padilla.m2@gmail.com"
+						},
+						{
+							"key": "date_birth",
+							"value": "2003-05-12"
+						},
+						{
+							"key": "password",
+							"value": "12345678"
+						},
+						{
+							"key": "role_adviser",
+							"value": "NUTRITIONIST",
+							"type": "text"
+						},
+						{
+							"key": "role_user",
+							"value": "ADVISER",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "12345678"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register"
 					]
 				}
 			},
@@ -97,7 +260,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/register/",
+							"raw": "http://127.0.0.1:8000/api/register/?name=Ezequiel&last_name=Padilla&email=ezequiel.padilla.m2@gmail.com&date_birth=2003-05-12&password=12345678&role_adviser=NUTRITIONIST&role_user=ADVISER&password_confirmation=12345678",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -110,13 +273,47 @@
 								"api",
 								"register",
 								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Ezequiel"
+								},
+								{
+									"key": "last_name",
+									"value": "Padilla"
+								},
+								{
+									"key": "email",
+									"value": "ezequiel.padilla.m2@gmail.com"
+								},
+								{
+									"key": "date_birth",
+									"value": "2003-05-12"
+								},
+								{
+									"key": "password",
+									"value": "12345678"
+								},
+								{
+									"key": "role_adviser",
+									"value": "NUTRITIONIST"
+								},
+								{
+									"key": "role_user",
+									"value": "ADVISER"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "12345678"
+								}
 							]
 						}
 					},
 					"_postman_previewlanguage": null,
 					"header": null,
 					"cookie": [],
-					"body": "{\n    \"user\": {\n        \"name\": \"Jose\",\n        \"last_name\": \"Pareci\",\n        \"email\": \"jose.pareci@gmail.com\",\n        \"date_birth\": \"2009-08-20\",\n        \"password\": \"$2y$10$VUvt4n3sdPRFkn0jbpwFnOgIX2Z0HwzJhFjC.Z5Hv2HNjOaVF9hEq\",\n        \"updated_at\": \"2021-09-28T12:05:27.000000Z\",\n        \"created_at\": \"2021-09-28T12:05:27.000000Z\",\n        \"id\": 2\n    },\n    \"client\": {},\n    \"token\": \"8|MZmc4ipEV05YUhT2V22DfbOoEhHI4juj0DNEC9yu\"\n}"
+					"body": "{\n    \"user\": {\n        \"name\": \"Ezequiel\",\n        \"last_name\": \"Padilla\",\n        \"email\": \"ezequiel.padilla.m2@gmail.com\",\n        \"date_birth\": \"2003-05-12\",\n        \"role\": \"ADVISER\",\n        \"updated_at\": \"2021-10-05T00:36:44.000000Z\",\n        \"created_at\": \"2021-10-05T00:36:43.000000Z\",\n        \"id\": 47,\n        \"adviser_id\": 27\n    },\n    \"adviser\": {\n        \"id\": 27,\n        \"user_id\": 47,\n        \"role\": \"NUTRITIONIST\",\n        \"created_at\": \"2021-10-05T00:36:43.000000Z\",\n        \"updated_at\": \"2021-10-05T00:36:43.000000Z\"\n    },\n    \"token\": \"4|IxZLgjWRSJxmUXfCxzmRreXvsq7kIyObqNciY90B\"\n}"
 				}
 			]
 		},
@@ -131,8 +328,21 @@
 						"type": "text"
 					}
 				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "ezequiel.padilla.m@gmail.com"
+						},
+						{
+							"key": "password",
+							"value": "12345678"
+						}
+					]
+				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/login/?email=ezequiel.padilla@anima.edu.uy&password=12345678",
+					"raw": "http://127.0.0.1:8000/api/login/",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -145,16 +355,6 @@
 						"api",
 						"login",
 						""
-					],
-					"query": [
-						{
-							"key": "email",
-							"value": "ezequiel.padilla@anima.edu.uy"
-						},
-						{
-							"key": "password",
-							"value": "12345678"
-						}
 					]
 				}
 			},
@@ -170,8 +370,21 @@
 								"type": "text"
 							}
 						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "ezequiel.padilla@anima.edu.uy"
+								},
+								{
+									"key": "password",
+									"value": "12345678"
+								}
+							]
+						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/login/?email=ezequiel.padilla@anima.edu.uy&password=12345678",
+							"raw": "http://127.0.0.1:8000/api/login/",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -184,23 +397,13 @@
 								"api",
 								"login",
 								""
-							],
-							"query": [
-								{
-									"key": "email",
-									"value": "ezequiel.padilla@anima.edu.uy"
-								},
-								{
-									"key": "password",
-									"value": "12345678"
-								}
 							]
 						}
 					},
 					"_postman_previewlanguage": null,
 					"header": null,
 					"cookie": [],
-					"body": null
+					"body": "{\n    \"user\": {\n        \"id\": 46,\n        \"name\": \"Ezequiel\",\n        \"last_name\": \"Padilla\",\n        \"email\": \"ezequiel.padilla.m@gmail.com\",\n        \"date_birth\": \"2003-05-12\",\n        \"role\": \"CLIENT\",\n        \"active\": 1,\n        \"created_at\": \"2021-10-05T00:35:19.000000Z\",\n        \"updated_at\": \"2021-10-05T00:35:20.000000Z\",\n        \"client_id\": 17,\n        \"adviser_id\": null\n    },\n    \"token\": \"5|8NKToUbm8b7mhXTK1tnm7WizuEpzaeJNFSiZoYNP\"\n}"
 				}
 			]
 		},
@@ -235,7 +438,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "1|6xC6lPBck8zp2XZ2W4anFO8HJpOLgh2fCMMe6Mfj",
+							"value": "5|8NKToUbm8b7mhXTK1tnm7WizuEpzaeJNFSiZoYNP",
 							"type": "string"
 						}
 					]
@@ -248,6 +451,10 @@
 						"type": "text"
 					}
 				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
 				"url": {
 					"raw": "http://127.0.0.1:8000/api/logout/",
 					"protocol": "http",
