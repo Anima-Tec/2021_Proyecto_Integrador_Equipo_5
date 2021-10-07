@@ -19,11 +19,19 @@
   border-radius: 10px 0px 10px 10px !important;
   border: none;
   background: $primary;
-  color: white;
   width: 215px;
   height: 54px;
-  font-family: $body !important;
   margin-top: 35px;
+}
+
+.a{
+  font-family: $body !important;
+  color: white;
+  text-decoration: none;
+}
+
+.a:hover{
+  color: white;
 }
 
 .button::after {
