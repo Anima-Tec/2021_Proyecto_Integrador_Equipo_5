@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 @import '../../assets/stylesheets/variables.scss';
 
 .title {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $title;
   color: $font;
   font-size: 40px;
   margin: 20px;
@@ -11,7 +10,7 @@
 }
 
 .body {
-  font-family: 'Roboto', sans-serif;
+  font-family: $body;
   font-weight: lighter;
   font-size: 20px;
   color: $font;

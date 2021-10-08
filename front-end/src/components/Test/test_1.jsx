@@ -9,6 +9,7 @@ import profile from '../../assets/images/profile.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Register() {
+  document.title = 'kiwi - test';
   return (
     <div className="container-fluid" style={{ width: '80%' }}>
       <div className="row" style={{ height: '80vh' }}>

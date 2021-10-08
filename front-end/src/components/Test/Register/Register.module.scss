@@ -1,16 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 @import '../../../assets/stylesheets/variables.scss';
 
 .title {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $title;
   color: $font;
   font-size: 40px;
   margin: 20px;
   text-align: center;
 }
 
+/* .form{
+  width: 450px;
+} */
+
 .body {
-  font-family: 'Roboto', sans-serif;
+  font-family: $body;
   font-weight: lighter;
   font-size: 20px;
   color: $font;
@@ -24,7 +27,7 @@
   color: white;
   width: 100%;
   height: 54px;
-  font-family: "Roboto", sans-serif !important;
+  font-family: $body !important;
 }
 
 .button span {
@@ -57,7 +60,7 @@
   pointer-events: none;
 }
 
-.profile{
+.profile {
   width: 111px;
 }
 
@@ -72,4 +75,17 @@
   padding-left: 21px;
   outline: none;
   border: none;
+}
+
+.error {
+  font-family: $body !important;
+  font-size: 15px !important;
+  color: #ff0000;
+  width: 100%;
+  text-align: left;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
 }
