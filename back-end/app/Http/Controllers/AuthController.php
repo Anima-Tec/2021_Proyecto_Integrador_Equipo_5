@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Adviser;
+use App\Models\Client;
 use App\Models\Imc;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -9,7 +11,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
-class AuthController extends Controller
+class AuthController extends ApiController
 {
     public function register(Request $request)
     {
@@ -18,9 +20,9 @@ class AuthController extends Controller
             'last_name' => 'required|string',
             'email' => 'required|string|unique:users,email',
             'date_birth' => 'required|date',
-            /* 'height' => 'required|integer',
-            'weight' => 'required|integer', */
-            'password' => 'required|string|confirmed'
+            'role_user' => 'required|string',
+            'role_adviser' => 'string',
+            'password' => 'required|string|confirmed|min:8'
         ]);
 
         $user = User::create([
@@ -28,28 +30,50 @@ class AuthController extends Controller
             'last_name' => $fields['last_name'],
             'email' => $fields['email'],
             'date_birth' => $fields['date_birth'],
+            'role' => $fields['role_user'],
             'password' => bcrypt($fields['password'])
         ]);
 
-        /* $user->client()->create([
-            'user_id' => $user->id,
-            'imc_id' => Imc::create([
-                'client_id' => $this->id,
-                'height' => $fields['height'],
-                'weight' => $fields['weight'],
-                'value' => $this->calculate_imc($fields['height'], $fields['weight']),
-            ])
-        ]);
- */
         $token = $user->createToken('user_token')->plainTextToken;
 
-        $response = [
-            'user' => $user,
-            'client' => $user->client(),
-            'token' => $token
-        ];
+        switch ($fields['role_user']) {
+            case 'CLIENT':
+                $client = $user->client()->create([
+                    'user_id' => $user->id,
+                ]);
 
-        Mail::to($user->email)->send(new \App\Mail\UserRegister($response));
+                $user->client_id = $client->id;
+                $user->save();
+
+                $response = [
+                    'user' => $user,
+                    'client' => Client::find($client->id),
+                    'token' => $token
+                ];
+
+                Mail::to($user->email)->send(new \App\Mail\UserRegister($response));
+                break;
+
+            case 'ADVISER':
+                $adviser = $user->adviser()->create([
+                    'user_id' => $user->id,
+                    'role' => $fields['role_adviser']
+                ]);
+
+                $user->adviser_id = $adviser->id;
+                $user->save();
+
+                $response = [
+                    'user' => $user,
+                    'adviser' => Adviser::find($adviser->id),
+                    'token' => $token
+                ];
+
+                Mail::to($user->email)->send(new \App\Mail\UserRegister($response));
+                break;
+            default:
+                return $this->sendError('Error');
+        }
         return response($response, 201);
     }
 

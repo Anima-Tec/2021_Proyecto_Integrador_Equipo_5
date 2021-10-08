@@ -24,9 +24,9 @@ class AdviserFactory extends Factory
      */
     public function definition()
     {
-        $adviser_types = ['Psychologist', 'Nutritionist'];
-        Adviser::create([
-            'role' => $adviser_types[rand(0, 1)]
-        ]);
+        $adviser_types = ['PSYCHOLOGIST', 'NUTRITIONIST'];
+        return [
+            'role' => $adviser_types[rand(0, 1)],
+        ];
     }
 }

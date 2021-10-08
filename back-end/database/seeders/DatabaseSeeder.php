@@ -18,10 +18,30 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()->times(10)->create();
-        // Client::factory()->times(User::where('role', 'Client')->count())->create();
-        // Imc::factory()->times(Client::all()->count())->create();
-        // Adviser::factory()->times(10)->create();
-        // Comment::factory()->times(10)->create();
+        User::factory()->times(40)->create();
+        $users = User::where('role', 'ADVISER')->whereNull('adviser_id')->distinct('id')->get();
+        foreach ($users as $user) {
+            $adviser_factory = Adviser::factory()->create(['user_id' => $user->id]);
+            $adviser = Adviser::find($adviser_factory->id);
+
+            $user->adviser_id = $adviser->id;
+            $user->save();
+        }
+        $users = User::where('role', 'CLIENT')->whereNull('client_id')->distinct('id')->get();
+        foreach ($users as $user) {
+            $client_factory = Client::factory()->create(['user_id' => $user->id]);
+            $client = Client::find($client_factory->id);
+
+            $user->client_id = $client->id;
+            $user->save();
+        }
+        $clients = Client::all();
+        foreach ($clients as $client) {
+            $imc_factory = Imc::factory()->create(['client_id' => $client->id]);
+            $imc = Imc::find($imc_factory->id);
+
+            $client->imc_id = $imc->id;
+            $client->save();
+        }
     }
 }
