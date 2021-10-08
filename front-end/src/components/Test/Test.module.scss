@@ -1,0 +1,59 @@
+@import '../../assets/stylesheets/variables.scss';
+
+.title {
+  font-family: $title;
+  color: $font;
+  font-size: 40px;
+  margin: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.body {
+  font-family: $body;
+  font-weight: lighter;
+  font-size: 20px;
+  color: $font;
+  text-align: justify;
+}
+
+.button {
+  border-radius: 10px 0px 10px 10px !important;
+  border: none;
+  background: $primary;
+  color: white;
+  width: 100px;
+  height: 54px;
+  font-family: "Roboto", sans-serif !important;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: url(../../assets/images/content-button.svg);
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -50px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 15px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.img {
+  width: inherit;
+  pointer-events: none;
+}
