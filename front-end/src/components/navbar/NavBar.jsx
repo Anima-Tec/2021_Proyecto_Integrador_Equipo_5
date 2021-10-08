@@ -65,8 +65,8 @@ const NavBar = () => {
           <form className="form-inline d-flex my-2 my-lg-0 d-flex">
             <Dropdown>
               <Dropdown.Toggle className={styles.user} variant="success" id="dropdown-basic">
-                <label className={styles.message}>Hola,</label>
                 <label className={styles.message}>{session?.user?.name}</label>
+                <label className={styles.message}>{session?.user?.last_name}</label>
                 {' '}
               </Dropdown.Toggle>
               <Dropdown.Menu className={styles.contentDropdown}>
