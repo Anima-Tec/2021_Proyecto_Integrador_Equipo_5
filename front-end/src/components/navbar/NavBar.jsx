@@ -78,7 +78,6 @@ const NavBar = () => {
           </form>
         ) : (
           <form className="form-inline d-flex my-2 my-lg-0 d-flex">
-            <label className={styles.label}>¿Ya tienes una cuenta creada?</label>
             <Link to="/login">
               <button className={styles.button} type="submit">
                 INICIAR SESIÓN

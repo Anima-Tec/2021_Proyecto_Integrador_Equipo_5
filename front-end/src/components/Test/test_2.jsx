@@ -7,7 +7,7 @@ import 'animate.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function test1() {
+export default function test2() {
   document.title = 'kiwi - test';
   return (
     <div className="container-fluid" style={{ width: '80%' }}>
@@ -15,17 +15,33 @@ export default function test1() {
         <form
           className={`col d-flex flex-column justify-content-center align-items-center ${styles.form}`}
         >
-          <span className={styles.title}>PREGUNTA 1</span>
-          <h1 className={styles.question}>¿Tienes una cuenta creada?</h1>
+          <span className={styles.title}>PREGUNTA 2</span>
           <div style={{ marginBottom: '20px' }}>
-            <Link to="/login">
-              <button className={styles.button} type="button">
-                <span>SI </span>
-              </button>
-            </Link>
+            <p>
+              <label className={styles.label}>Altura (cm)</label>
+            </p>
+            <p>
+              <input
+                className={styles.input}
+                placeholder="Ingrese su altura"
+                name="height"
+                autoComplete="off"
+              />
+            </p>
+            <p>
+              <label className={styles.label}>Peso (kg)</label>
+            </p>
+            <p>
+              <input
+                className={styles.input}
+                placeholder="Ingrese su peso"
+                name="weight"
+                autoComplete="off"
+              />
+            </p>
             <Link to="/register">
-              <button className={styles.button} type="button">
-                <span>NO </span>
+              <button className={styles.button} type="submit">
+                <span>Continuar </span>
               </button>
             </Link>
           </div>

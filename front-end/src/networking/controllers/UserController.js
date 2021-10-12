@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import axios from 'axios';
 import { generateBackendURL } from '../routes';
 import TokenService from '../tokenService';
@@ -11,14 +12,14 @@ class SessionController {
     TokenService.setUser(response.data);
   }
 
-  static async register(name, surname, email, dateBirth, role, password) {
+  static async register(name, last_name, email, date_birth, password, password_confirmation) {
     const response = await axios.post(generateBackendURL('register'), {
       name,
-      surname,
+      last_name,
       email,
-      dateBirth,
-      role,
+      date_birth,
       password,
+      password_confirmation,
     });
     TokenService.setUser(response.data);
   }
