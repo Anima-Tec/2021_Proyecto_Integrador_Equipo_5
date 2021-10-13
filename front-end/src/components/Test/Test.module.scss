@@ -26,13 +26,14 @@
 }
 
 .button {
+  font-family: $body;
+  font-weight: bolder;
   border-radius: 10px 0px 10px 10px !important;
   border: none;
   background: $primary;
   color: white;
   width: 100px;
   height: 54px;
-  font-family: 'Roboto', sans-serif !important;
   margin: 5px;
 }
 

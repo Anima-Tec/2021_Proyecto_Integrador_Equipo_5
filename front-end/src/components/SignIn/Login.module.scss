@@ -1,4 +1,4 @@
-@import "../../assets/stylesheets/variables.scss";
+@import '../../assets/stylesheets/variables.scss';
 
 .section {
   background-color: #f9fae9;
@@ -19,7 +19,7 @@
   color: #9b9b9b;
 }
 
-.return{
+.return {
   width: 40px !important;
   pointer-events: none;
 }
@@ -100,6 +100,7 @@
 
 .error {
   font-family: $body !important;
+  font-weight: bold;
   font-size: 15px !important;
   color: #ff0000;
   width: 100%;
