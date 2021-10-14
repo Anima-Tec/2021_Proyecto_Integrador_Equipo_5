@@ -44,6 +44,7 @@
   height: 54px;
   margin-top: 35px;
   color: white;
+  box-shadow: #bfd732 0px 10px 40px -10px;
   @media (max-width: 600px) {
     width: 150px;
     height: 42px;
@@ -59,6 +60,9 @@
 .img {
   width: inherit;
   pointer-events: none;
+  @media (max-width: 850px) {
+    display: none;
+  }
 }
 
 ::selection {

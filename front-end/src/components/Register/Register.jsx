@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/label-has-associated-control */
@@ -78,7 +79,7 @@ export default function Login() {
           <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
             <div>
               <div className="d-flex">
-                <Link to="/inicio">
+                <Link to="/">
                   <img src={back} alt="volver" className={styles.return} />
                 </Link>
                 <h1 className={styles.title}>Registrarse</h1>
@@ -118,7 +119,7 @@ export default function Login() {
                 <p className={`w-50 ${styles.padding}`}>
                   <input
                     className={styles.input}
-                    placeholder="Ingrese su contraseña"
+                    placeholder="Fecha de nacimiento"
                     name="date_birth"
                     type="date"
                     {...register('date_birth')}

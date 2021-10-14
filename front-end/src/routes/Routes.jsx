@@ -5,9 +5,9 @@ import Home from '../pages/Home';
 import Login from '../pages/SignIn';
 import Test from '../pages/Test';
 import Test2 from '../components/Test/test_2';
+import Test3 from '../components/Test/test_3';
 import NavBar from '../components/navbar/NavBar';
 import Register from '../components/Register/Register';
-
 import NavRouter from './NavRoutes';
 
 const Routes = () => {
@@ -25,9 +25,13 @@ const Routes = () => {
         <NavBar />
         <Home />
       </NavRouter>
-      <NavRouter path="/test" exact>
+      <NavRouter path="/test2">
         <NavBar />
         <Test2 />
+      </NavRouter>
+      <NavRouter path="/test3">
+        <NavBar />
+        <Test3 />
       </NavRouter>
       <Route>
         <Redirect to="/inicio" exact />
@@ -43,7 +47,7 @@ const Routes = () => {
       <NavRouter path="/login" exact>
         <Login />
       </NavRouter>
-      <NavRouter path="/test" exact>
+      <NavRouter path="/test1" exact>
         <NavBar />
         <Test />
       </NavRouter>

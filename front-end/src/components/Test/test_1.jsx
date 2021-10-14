@@ -30,7 +30,7 @@ export default function test1() {
             </Link>
           </div>
         </form>
-        <div className="col d-none d-sm-flex d-sm-none d-md-flex d-flex  d-lg-flex justify-content-center align-items-center">
+        <div className="col d-none d-sm-flex d-sm-none d-md-none d-flex d-lg-flex justify-content-center align-items-center">
           <img src={Ilustration} alt="Ilustración" className={`animate__bounceIn ${styles.img}`} />
         </div>
       </div>

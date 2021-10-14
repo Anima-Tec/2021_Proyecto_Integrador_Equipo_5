@@ -11,7 +11,7 @@ import 'animate.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function Test2() {
+export default function Test3() {
   const schema = yup.object().shape({
     weight: yup.number().required('Campo requerido'),
     height: yup.number().required('Campo requerido'),
@@ -31,9 +31,8 @@ export default function Test2() {
           className={`col d-flex flex-column justify-content-center align-items-center ${styles.form}`}
           onSubmit={handleSubmit}
         >
-          <span className={styles.title}>PREGUNTA 2</span>
+          <span className={styles.title}>PREGUNTA 3</span>
           <div>
-            <h1 className={styles.question}>¡Comencemos!</h1>
             <div className="d-flex">
               <p className={styles.containerInput}>
                 <label className={styles.label}>Altura (cm)</label>
@@ -59,7 +58,7 @@ export default function Test2() {
               </p>
             </div>
           </div>
-          <Link to="/test3">
+          <Link to="/test4">
             <button className={styles.button} type="submit">
               <span>Siguiente </span>
             </button>
