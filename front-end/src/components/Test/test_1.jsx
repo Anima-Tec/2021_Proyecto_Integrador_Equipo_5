@@ -4,24 +4,20 @@ import { Link } from 'react-router-dom';
 import styles from './Test.module.scss';
 import Ilustration from '../../assets/images/test.svg';
 import 'animate.css';
-import profile from '../../assets/images/profile.png';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function Register() {
+export default function test1() {
   document.title = 'kiwi - test';
   return (
     <div className="container-fluid" style={{ width: '80%' }}>
       <div className="row" style={{ height: '80vh' }}>
-        <div className="col d-flex flex-column justify-content-center align-items-center">
-          <img src={profile} alt="Ilustración" />
-          <h1 className={styles.title}>
-            Hola, soy Paloma
-            <br />
-            {' '}
-            ¿Tienes una cuenta creada?
-          </h1>
-          <div>
+        <form
+          className={`col d-flex flex-column justify-content-center align-items-center ${styles.form}`}
+        >
+          <span className={styles.title}>PREGUNTA 1</span>
+          <h1 className={styles.question}>¿Tienes una cuenta creada?</h1>
+          <div style={{ marginBottom: '20px' }}>
             <Link to="/login">
               <button className={styles.button} type="button">
                 <span>SI </span>
@@ -33,8 +29,8 @@ export default function Register() {
               </button>
             </Link>
           </div>
-        </div>
-        <div className="col d-none d-sm-flex d-sm-none d-md-flex d-flex  d-lg-flex justify-content-center align-items-center">
+        </form>
+        <div className="col d-none d-sm-flex d-sm-none d-md-none d-flex d-lg-flex justify-content-center align-items-center">
           <img src={Ilustration} alt="Ilustración" className={`animate__bounceIn ${styles.img}`} />
         </div>
       </div>
