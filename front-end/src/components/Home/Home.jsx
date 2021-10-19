@@ -5,9 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Home.module.scss';
 import Ilustration from '../../assets/images/home.svg';
-
 import 'animate.css';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Home() {
