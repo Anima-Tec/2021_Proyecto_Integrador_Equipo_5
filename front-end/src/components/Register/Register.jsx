@@ -151,7 +151,7 @@ export default function Login() {
               </div>
             </div>
             <button className={styles.button} type="submit" disabled={loading}>
-              {loading ? <Spinner /> : <span>INGRESAR </span>}
+              {loading ? <Spinner /> : <span>REGISTRARSE </span>}
             </button>
             <p className={styles.p}>
               Tienes una cuenta?{' '}
