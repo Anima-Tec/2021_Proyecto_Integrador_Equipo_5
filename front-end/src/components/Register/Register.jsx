@@ -150,8 +150,8 @@ export default function Login() {
                 </p>
               </div>
             </div>
-            <button className={styles.button} type="submit">
-              <span>REGISTRARSE </span>
+            <button className={styles.button} type="submit" disabled={loading}>
+              {loading ? <Spinner /> : <span>INGRESAR </span>}
             </button>
             <p className={styles.p}>
               Tienes una cuenta?{' '}
@@ -160,7 +160,6 @@ export default function Login() {
               </Link>
             </p>
             <p className={styles.error}>{errors.general?.message}</p>
-            {loading && <Spinner />}
           </form>
         </div>
       </div>
