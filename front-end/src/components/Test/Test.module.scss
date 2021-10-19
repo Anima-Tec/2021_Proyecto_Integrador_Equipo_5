@@ -15,6 +15,9 @@
   margin-bottom: 10px;
   width: 100%;
   text-align: center;
+  @media (max-width: 600px) {
+    font-size: 25px;
+  }
 }
 
 .body {
@@ -81,7 +84,8 @@
   padding: 0 10px;
 }
 
-.input {
+.input,
+.select {
   padding: 5px;
   border-radius: 10px;
   width: 100%;
@@ -94,9 +98,23 @@
   border: none;
 }
 
+.select {
+  width: 200px;
+}
+
 .label {
   font-family: $body;
   font-size: 18px;
   color: #9b9b9b;
   margin-bottom: 5px;
+}
+
+.check:checked {
+  background-color: $primary !important;
+  border-color: $secundary !important;
+}
+
+.check:focus {
+  border-color: white !important;
+  box-shadow: none !important;
 }

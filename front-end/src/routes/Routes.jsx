@@ -4,8 +4,14 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import Home from '../pages/Home';
 import Login from '../pages/SignIn';
 import Test from '../pages/Test';
-import Test2 from '../components/Test/test_2';
-import Test3 from '../components/Test/test_3';
+import Test2 from '../components/Test/part2';
+import Test3 from '../components/Test/part3';
+import Test4 from '../components/Test/part4';
+import Test5 from '../components/Test/part5';
+import Test6 from '../components/Test/part6';
+import Test7 from '../components/Test/part7';
+import Test8 from '../components/Test/part8';
+import Test9 from '../components/Test/part9';
 import NavBar from '../components/navbar/NavBar';
 import Register from '../components/Register/Register';
 import NavRouter from './NavRoutes';
@@ -32,6 +38,30 @@ const Routes = () => {
       <NavRouter path="/test3">
         <NavBar />
         <Test3 />
+      </NavRouter>
+      <NavRouter path="/test4">
+        <NavBar />
+        <Test4 />
+      </NavRouter>
+      <NavRouter path="/test5">
+        <NavBar />
+        <Test5 />
+      </NavRouter>
+      <NavRouter path="/test6">
+        <NavBar />
+        <Test6 />
+      </NavRouter>
+      <NavRouter path="/test7">
+        <NavBar />
+        <Test7 />
+      </NavRouter>
+      <NavRouter path="/test8">
+        <NavBar />
+        <Test8 />
+      </NavRouter>
+      <NavRouter path="/test9">
+        <NavBar />
+        <Test9 />
       </NavRouter>
       <Route>
         <Redirect to="/inicio" exact />

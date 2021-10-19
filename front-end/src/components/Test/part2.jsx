@@ -2,9 +2,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
-import * as yup from 'yup';
-import { yupResolver } from '@hookform/resolvers/yup';
 import styles from './Test.module.scss';
 import Ilustration from '../../assets/images/test.svg';
 import 'animate.css';
@@ -12,26 +9,14 @@ import 'animate.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Test2() {
-  const schema = yup.object().shape({
-    weight: yup.number().required('Campo requerido'),
-    height: yup.number().required('Campo requerido'),
-  });
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
   document.title = 'kiwi - test';
   return (
     <div className="container-fluid" style={{ width: '80%' }}>
       <div className="row" style={{ height: '80vh' }}>
         <form
           className={`col d-flex flex-column justify-content-center align-items-center ${styles.form}`}
-          onSubmit={handleSubmit}
         >
-          <span className={styles.title}>PREGUNTA 2</span>
+          <span className={styles.title}>PREGUNTA 2 / 9</span>
           <div>
             <h1 className={styles.question}>¡Comencemos!</h1>
             <div className="d-flex">
@@ -42,9 +27,7 @@ export default function Test2() {
                   placeholder="Ingrese su altura"
                   name="height"
                   autoComplete="off"
-                  {...register('height')}
                 />
-                <span className={styles.error}>{errors.height?.message}</span>
               </p>
               <p className={styles.containerInput}>
                 <label className={styles.label}>Peso (kg)</label>
@@ -53,9 +36,7 @@ export default function Test2() {
                   placeholder="Ingrese su peso"
                   name="weight"
                   autoComplete="off"
-                  {...register('weight')}
                 />
-                <span className={styles.error}>{errors.weight?.message}</span>
               </p>
             </div>
           </div>

@@ -15,7 +15,7 @@ export default function test1() {
         <form
           className={`col d-flex flex-column justify-content-center align-items-center ${styles.form}`}
         >
-          <span className={styles.title}>PREGUNTA 1</span>
+          <span className={styles.title}>PREGUNTA 1 / 9</span>
           <h1 className={styles.question}>¿Tienes una cuenta creada?</h1>
           <div style={{ marginBottom: '20px' }}>
             <Link to="/login">
