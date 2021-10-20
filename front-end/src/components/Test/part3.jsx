@@ -17,7 +17,7 @@ export default function Test3() {
         <form
           className={`col d-flex flex-column justify-content-center align-items-center ${styles.form}`}
         >
-          <span className={styles.title}>PREGUNTA 3 / 9</span>
+          <span className={styles.title}>PREGUNTA 2 / 8</span>
           <div>
             <h1 className={styles.question}>¿Llevas algún tipo de alimentación especial?</h1>
             <div className="d-flex justify-content-center mt-4">
