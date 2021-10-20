@@ -23,7 +23,7 @@ export default function Test2() {
             <div className="d-flex justify-content-center mt-4">
               <p>
                 <select name="select" className={styles.select}>
-                  <option selected disabled>
+                  <option hidden selected disabled>
                     Elija una opción
                   </option>
                   <option value="value3">Saludables</option>
