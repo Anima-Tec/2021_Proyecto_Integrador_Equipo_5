@@ -92,8 +92,8 @@ export default function Login() {
                 <span className={styles.error}>{errors.password?.message}</span>
               </p>
             </div>
-            <button className={styles.button} type="submit">
-              <span>INGRESAR </span>
+            <button className={styles.button} type="submit" disabled={loading}>
+              {loading ? <Spinner /> : <span>INGRESAR </span>}
             </button>
             <p className={styles.p}>
               Eres nuevo?
@@ -103,7 +103,6 @@ export default function Login() {
               </Link>
             </p>
             <p className={styles.error}>{errors.general?.message}</p>
-            {loading && <Spinner />}
           </form>
         </div>
       </div>

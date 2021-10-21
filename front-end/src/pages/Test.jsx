@@ -1,5 +1,5 @@
 import React from 'react';
-import Register from '../components/Test/test_1';
+import Register from '../components/Test/part1';
 
 const Test = () => <Register />;
 

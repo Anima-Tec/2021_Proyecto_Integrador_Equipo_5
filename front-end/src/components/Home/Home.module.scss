@@ -14,13 +14,20 @@
   font-size: 40px;
   margin-bottom: 35px;
   width: 100%;
+  @media (max-width: 600px) {
+    font-size: 25px;
+  }
 }
 
 .body {
+  font-family: $body;
   font-weight: lighter;
   font-size: 20px;
   color: $font;
   text-align: justify;
+  @media (max-width: 600px) {
+    font-size: 18px;
+  }
 }
 
 .btnContainer {
@@ -28,6 +35,8 @@
 }
 
 .button {
+  font-family: $body;
+  font-weight: bold;
   border-radius: 10px 0px 10px 10px !important;
   border: none;
   background: $primary;
@@ -35,6 +44,12 @@
   height: 54px;
   margin-top: 35px;
   color: white;
+  box-shadow: #bfd732 0px 10px 40px -10px;
+  @media (max-width: 600px) {
+    width: 150px;
+    height: 42px;
+    font-size: 15px;
+  }
 }
 
 .button::after {
@@ -45,4 +60,12 @@
 .img {
   width: inherit;
   pointer-events: none;
+  @media (max-width: 850px) {
+    display: none;
+  }
+}
+
+::selection {
+  color: white;
+  background: $secundary;
 }

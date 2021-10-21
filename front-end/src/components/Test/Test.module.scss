@@ -1,12 +1,23 @@
 @import '../../assets/stylesheets/variables.scss';
 
 .title {
-  font-family: $title;
+  font-family: $body;
   color: $font;
-  font-size: 40px;
+  font-size: 20px;
   margin: 20px;
   width: 100%;
+}
+
+.question {
+  font-family: $title;
+  color: $font;
+  font-size: 35px;
+  margin-bottom: 10px;
+  width: 100%;
   text-align: center;
+  @media (max-width: 600px) {
+    font-size: 25px;
+  }
 }
 
 .body {
@@ -18,14 +29,18 @@
 }
 
 .button {
+  font-family: $body;
+  font-weight: bolder;
   border-radius: 10px 0px 10px 10px !important;
   border: none;
   background: $primary;
   color: white;
-  width: 100px;
+  width: 120px;
   height: 54px;
-  font-family: "Roboto", sans-serif !important;
-  margin: 5px;
+  margin: 20px;
+  @media (max-width: 430px) {
+    width: -webkit-fill-available;
+  }
 }
 
 .button span {
@@ -56,4 +71,51 @@
 .img {
   width: inherit;
   pointer-events: none;
+}
+
+.form {
+  border-radius: 10px;
+  height: fit-content;
+  margin: auto;
+  box-shadow: $shadow;
+}
+
+.containerInput {
+  padding: 0 10px;
+}
+
+.input,
+.select,
+option {
+  padding: 5px;
+  border-radius: 10px;
+  width: 100%;
+  height: 54px;
+  box-shadow: $shadow;
+  font-family: $body !important;
+  font-size: 15px !important;
+  padding-left: 21px;
+  outline: none;
+  border: none;
+}
+
+.select {
+  width: 200px;
+}
+
+.label {
+  font-family: $body;
+  font-size: 18px;
+  color: #9b9b9b;
+  margin-bottom: 5px;
+}
+
+.check:checked {
+  background-color: $primary !important;
+  border-color: $secundary !important;
+}
+
+.check:focus {
+  border-color: white !important;
+  box-shadow: none !important;
 }

@@ -1,10 +1,10 @@
-/* eslint-disable no-console */
-/* eslint-disable no-unused-expressions */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect, useRef, useState } from 'react';
+/* eslint-disable no-unused-expressions */
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Dropdown from 'react-bootstrap/Dropdown';
+import {
+  Dropdown, Navbar, Nav, Form,
+} from 'react-bootstrap';
 import Logo from '../../assets/images/logo.svg';
 import styles from './navbar.module.scss';
 
@@ -20,53 +20,28 @@ const NavBar = () => {
     window.location.reload();
   };
 
-  let { current: toggleRef } = useRef();
-  function toggleOnResize() {
-    if (window.innerWidth < 1000) {
-      toggleRef = () => {
-        document.querySelector('#navbarSupportedContent').classList.toggle('show');
-      };
-    }
-  }
-
-  function toggle() {
-    if (toggleRef) {
-      toggleRef();
-    }
-  }
-
-  useEffect(() => {
-    window.addEventListener('resize', toggleOnResize);
-  });
-
   useEffect(() => {
     authToken ? setIsLogged(true) : setIsLogged(false);
   }, [authToken]);
 
   return (
-    <nav className={`navbar navbar-expand-lg navbar-light ${styles.navbar}`}>
+    <Navbar expand="lg" className={styles.navbar}>
       <Link to="/inicio">
         <img className={styles.logo} src={Logo} width="147" height="50" alt="logo" />
       </Link>
-      <button
-        className="navbar-toggler "
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-        onClick={() => toggle()}
-      >
-        <span className="navbar-toggler-icon" />
-      </button>
-      <div className={`collapse navbar-collapse ${styles.nogrow}`} id="navbarSupportedContent">
+      {' '}
+      <Navbar.Toggle aria-controls="navbarScroll" />
+      <Navbar.Collapse id="navbarScroll" style={{ justifyContent: 'flex-end' }}>
         {isLogged ? (
-          <form className="form-inline d-flex my-2 my-lg-0 d-flex">
+          <Nav
+            className="mr-auto my-2 my-lg-0 flex-row justify-content-end"
+            style={{ maxHeight: '100px' }}
+            navbarScroll
+          >
             <Dropdown>
               <Dropdown.Toggle className={styles.user} variant="success" id="dropdown-basic">
-                <label className={styles.message}>Hola,</label>
                 <label className={styles.message}>{session?.user?.name}</label>
+                <label className={styles.message}>{session?.user?.last_name}</label>
                 {' '}
               </Dropdown.Toggle>
               <Dropdown.Menu className={styles.contentDropdown}>
@@ -75,19 +50,18 @@ const NavBar = () => {
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-          </form>
+          </Nav>
         ) : (
-          <form className="form-inline d-flex my-2 my-lg-0 d-flex">
-            <label className={styles.label}>¿Ya tienes una cuenta creada?</label>
+          <Form className="d-flex justify-content-end mt-2">
             <Link to="/login">
               <button className={styles.button} type="submit">
                 INICIAR SESIÓN
               </button>
             </Link>
-          </form>
+          </Form>
         )}
-      </div>
-    </nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
 };
 
