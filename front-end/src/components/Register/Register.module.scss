@@ -60,6 +60,10 @@
   font-family: $body !important;
 }
 
+.button:disabled {
+  background: $secundary;
+}
+
 .button span {
   cursor: pointer;
   display: inline-block;
