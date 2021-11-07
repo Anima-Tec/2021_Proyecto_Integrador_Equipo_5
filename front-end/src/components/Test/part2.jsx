@@ -1,6 +1,9 @@
+/* eslint-disable no-debugger */
+/* eslint-disable no-console */
+/* eslint-disable no-alert */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Test.module.scss';
 import Ilustration from '../../assets/images/test.svg';
@@ -9,6 +12,35 @@ import 'animate.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Test2() {
+  const [altura, setAltura] = useState('');
+  const [peso, setPeso] = useState('');
+  const cm = document.getElementById('cm');
+  const kg = document.getElementById('kg');
+
+  const calc = () => {
+    const arr = ['A', 'B', 'D', 'E'];
+    if (kg.value !== '' && cm.value !== '') {
+      const weight = kg.value;
+      const height = cm.value / 100;
+      const imc = weight / (height * height);
+      if (imc < 18.5) {
+        alert(`Peso inferior al normal ${imc}`);
+        arr.insert(0, '0');
+      } else if (imc >= 18.5 && imc <= 24.9) {
+        arr.insert(0, 20);
+        alert(`Peso normal ${imc}`);
+      } else if (imc >= 25 && imc <= 29.9) {
+        arr.insert(0, 20);
+        alert(`Peso superior al normal ${imc}`);
+      } else if (imc > 30) {
+        arr.insert(0, '0');
+        alert(`Obesidad ${imc}`);
+      }
+    } else {
+      alert('Debes ingresar peso y altura.');
+    }
+    console.log(arr);
+  };
   document.title = 'kiwi - test';
   return (
     <div className="container-fluid" style={{ width: '80%' }}>
@@ -23,25 +55,31 @@ export default function Test2() {
               <p className={styles.containerInput}>
                 <label className={styles.label}>Altura (cm)</label>
                 <input
+                  value={altura}
+                  onChange={(e) => setAltura(e.target.value)}
                   className={styles.input}
                   placeholder="Ingrese su altura"
-                  name="height"
+                  name="cm"
                   autoComplete="off"
+                  id="cm"
                 />
               </p>
               <p className={styles.containerInput}>
                 <label className={styles.label}>Peso (kg)</label>
                 <input
+                  value={peso}
+                  onChange={(e) => setPeso(e.target.value)}
                   className={styles.input}
                   placeholder="Ingrese su peso"
-                  name="weight"
+                  name="kg"
                   autoComplete="off"
+                  id="kg"
                 />
               </p>
             </div>
           </div>
           <Link to="/test3">
-            <button className={styles.button} type="submit">
+            <button className={styles.button} type="submit" onClick={calc}>
               <span>Siguiente </span>
             </button>
           </Link>
