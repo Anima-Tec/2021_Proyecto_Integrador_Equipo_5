@@ -1,6 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable */
 import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Test.module.scss';
 import Ilustration from '../../assets/images/test.svg';
@@ -8,8 +10,14 @@ import 'animate.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function Test2() {
+export default function Test4() {
   document.title = 'kiwi - test';
+
+  let [doexercise, setDoexercise] = useState();
+
+  const doExercise = (event) => {
+    doExercise = setDoexercise(event.target.value);
+  };
   return (
     <div className="container-fluid" style={{ width: '80%' }}>
       <div className="row" style={{ height: '80vh' }}>
@@ -23,10 +31,11 @@ export default function Test2() {
               <div className="form-check form-check-inline">
                 <input
                   className={`form-check-input ${styles.check}`}
+                  onChange={doExercise}
                   type="radio"
                   name="inlineRadioOptions"
                   id="inlineRadio1"
-                  value="option1"
+                  value="Si"
                 />
                 <label className={styles.label} htmlFor="inlineRadio1">
                   Si
@@ -35,10 +44,11 @@ export default function Test2() {
               <div className="form-check form-check-inline">
                 <input
                   className={`form-check-input ${styles.check}`}
+                  onChange={doExercise}
                   type="radio"
                   name="inlineRadioOptions"
                   id="inlineRadio2"
-                  value="option2"
+                  value="No"
                 />
                 <label className={styles.label} htmlFor="inlineRadio2">
                   No

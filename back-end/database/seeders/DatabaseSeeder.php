@@ -7,6 +7,8 @@ use App\Models\Client;
 use App\Models\Comment;
 use App\Models\Imc;
 use App\Models\User;
+use App\Models\Answers;
+use App\Models\Questions;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,6 +21,19 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::factory()->times(40)->create();
+        Answesrs::factory()->times(40)->create();
+        Questions::factory()->times(40)->create();
+
+        $questions = Question::all();
+        foreach ($questions as $question) {
+            $question = answers()->save(Answer::factory()->make());
+
+            
+
+
+        }
+
+
         $users = User::where('role', 'ADVISER')->whereNull('adviser_id')->distinct('id')->get();
         foreach ($users as $user) {
             $adviser_factory = Adviser::factory()->create(['user_id' => $user->id]);
@@ -42,6 +57,20 @@ class DatabaseSeeder extends Seeder
 
             $client->imc_id = $imc->id;
             $client->save();
+        }
+        foreach ($answer as $answer) {
+            $comment_factory = Comment::factory()->create(['answer_id' => $answer->id]);
+            $comment = Comment::find($comment_factory->id);
+
+            $answer->comment_id = $comment->id;
+            $answer->save();
+        }
+        foreach ($question as $question) {
+            $comment_factory = Comment::factory()->create(['question_id' => $question->id]);
+            $comment = Comment::find($comment_factory->id);
+
+            $question->comment_id = $comment->id;
+            $question->save();
         }
     }
 }
