@@ -14,10 +14,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export default function Test7() {
   document.title = 'kiwi - test';
 
-  const [foodFrecuency, setFoodFrecuency] = useState();
+  let [foodFrecuency, setFoodFrecuency] = useState();
 
   const getFoodFrecuency = (event) => {
-    setFoodFrecuency(event.target.value);
+    foodFrecuency = setFoodFrecuency(event.target.value);
   }
   return (
     <div className="container-fluid" style={{ width: '80%' }}>

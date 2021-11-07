@@ -16,7 +16,7 @@ export default function Test4() {
   let [doexercise, setDoexercise] = useState();
 
   const doExercise = (event) => {
-    doExercise = setDoexercise(event.target.value);
+    doexercise = setDoexercise(event.target.value);
   };
   return (
     <div className="container-fluid" style={{ width: '80%' }}>

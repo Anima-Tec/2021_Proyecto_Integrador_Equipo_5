@@ -13,10 +13,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export default function Test5() {
   document.title = 'kiwi - test';
 
-  const [weightLossDiet, setWeightLossDiet] = useState();
+  let [weightLossDiet, setWeightLossDiet] = useState();
 
   const getWeightLoss = (event) => {
-    setWeightLossDiet(event.target.value);
+    weightLossDiet = setWeightLossDiet(event.target.value);
   };
   return (
     <div className="container-fluid" style={{ width: '80%' }}>

@@ -14,9 +14,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export default function Test6() {
   document.title = 'kiwi - test';
 
-  const [foodType, setFoodType] = useState();
+  let [foodType, setFoodType] = useState();
   const getFoodType = (event) => {
-    setFoodType(event.target.value);
+    foodType = setFoodType(event.target.value);
   }
   return (
     <div className="container-fluid" style={{ width: '80%' }}>

@@ -13,10 +13,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export default function Test8() {
   document.title = 'kiwi - test';
 
-  const [vegFrecuency, setVegFrecuency] = useState();
+  let [vegFrecuency, setVegFrecuency] = useState();
 
   const getVegFrecuency = (event) => {
-    setVegFrecuency(event.target.value);
+    vegFrecuency = setVegFrecuency(event.target.value);
   };
 
   return (
