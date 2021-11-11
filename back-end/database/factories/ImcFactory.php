@@ -25,7 +25,7 @@ class ImcFactory extends Factory
         return [
             'height' => rand(100, 220),
             'weight' => rand(20, 200),
-            'value' => 24,
+            'value' => rand(10, 40),
         ];
     }
 }
