@@ -1,7 +1,9 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable */
 import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Test.module.scss';
 import Ilustration from '../../assets/images/test.svg';
@@ -9,8 +11,14 @@ import 'animate.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function Test2() {
+export default function Test7() {
   document.title = 'kiwi - test';
+
+  let [foodFrecuency, setFoodFrecuency] = useState();
+
+  const getFoodFrecuency = (event) => {
+    foodFrecuency = setFoodFrecuency(event.target.value);
+  }
   return (
     <div className="container-fluid" style={{ width: '80%' }}>
       <div className="row" style={{ height: '80vh' }}>
@@ -22,15 +30,15 @@ export default function Test2() {
             <h1 className={styles.question}>¿Cuántos tiempos de comida haces?</h1>
             <div className="d-flex justify-content-center mt-4">
               <p>
-                <select name="select" className={styles.select}>
+                <select name="select" className={styles.select} onChange={getFoodFrecuency}>
                   <option hidden selected disabled>
                     Elija una opción
                   </option>
-                  <option value="value1">Menos de 2</option>
-                  <option value="value2">3</option>
-                  <option value="value3">4</option>
-                  <option value="value4">5</option>
-                  <option value="value5">Más de 6</option>
+                  <option value="Menos-de-2">Menos de 2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="Mas-de-6">Más de 6</option>
                 </select>{' '}
               </p>
             </div>

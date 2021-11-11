@@ -2,18 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Client;
-use App\Models\Imc;
+use App\Models\Questions;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ImcFactory extends Factory
+class QuestionsFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Imc::class;
+    protected $model = Questions::class;
 
     /**
      * Define the model's default state.
@@ -23,9 +22,7 @@ class ImcFactory extends Factory
     public function definition()
     {
         return [
-            'height' => rand(100, 220),
-            'weight' => rand(20, 200),
-            'value' => rand(10, 40),
+            'question_desc' => $this->faker->sentence,
         ];
     }
 }
