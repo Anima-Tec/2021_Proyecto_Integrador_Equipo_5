@@ -333,7 +333,7 @@
 					"formdata": [
 						{
 							"key": "email",
-							"value": "ezequiel.padilla.m@gmail.com"
+							"value": "yhoppe@example.org"
 						},
 						{
 							"key": "password",
@@ -404,6 +404,110 @@
 					"header": null,
 					"cookie": [],
 					"body": "{\n    \"user\": {\n        \"id\": 46,\n        \"name\": \"Ezequiel\",\n        \"last_name\": \"Padilla\",\n        \"email\": \"ezequiel.padilla.m@gmail.com\",\n        \"date_birth\": \"2003-05-12\",\n        \"role\": \"CLIENT\",\n        \"active\": 1,\n        \"created_at\": \"2021-10-05T00:35:19.000000Z\",\n        \"updated_at\": \"2021-10-05T00:35:20.000000Z\",\n        \"client_id\": 17,\n        \"adviser_id\": null\n    },\n    \"token\": \"5|8NKToUbm8b7mhXTK1tnm7WizuEpzaeJNFSiZoYNP\"\n}"
+				}
+			]
+		},
+		{
+			"name": "imc",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "6|wIDoSIzpXmZMX23FfPpGJLOJ6zkK07vI7ZDe7ozp",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "height",
+							"value": "175",
+							"type": "text"
+						},
+						{
+							"key": "weight",
+							"value": "90",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/imc/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"imc",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "imc",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "height",
+									"value": "175",
+									"type": "text"
+								},
+								{
+									"key": "weight",
+									"value": "90",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/imc/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"imc",
+								""
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"client_id\": 1,\n    \"height\": \"175\",\n    \"weight\": \"90\",\n    \"value\": 29.39,\n    \"updated_at\": \"2021-11-13T23:55:03.000000Z\",\n    \"created_at\": \"2021-11-13T23:55:03.000000Z\",\n    \"id\": 34\n}"
 				}
 			]
 		},
