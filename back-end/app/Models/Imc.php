@@ -20,8 +20,4 @@ class Imc extends Model
     {
         return $this->belongsTo(Client::class);
     }
-
-    public function calculate_imc($height, $weight) {
-        return $this->attributes['value'] = $weight/($height*$height);
-    }
 }
