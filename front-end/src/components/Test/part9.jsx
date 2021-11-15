@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable */
@@ -56,11 +57,18 @@ export default function Test9() {
               </div>
             </div>
           </div>
-          <Link to="/result">
-            <button className={styles.button} type="submit">
-              <span>Siguiente </span>
-            </button>
-          </Link>
+          <div>
+            <Link to="/test8">
+              <button className={`${styles.button} ${styles.buttonGhost}`} type="submit">
+                <span>Volver </span>
+              </button>
+            </Link>
+            <Link to="/result">
+              <button className={styles.button} type="submit">
+                <span>Terminar </span>
+              </button>
+            </Link>
+          </div>
         </form>
         <div className="col d-none d-sm-flex d-sm-none d-md-none d-flex d-lg-flex justify-content-center align-items-center">
           <img src={Ilustration} alt="Ilustración" className={`animate__bounceIn ${styles.img}`} />

@@ -23,7 +23,7 @@ export default function test1() {
               </button>
             </Link>
             <Link to="/register">
-              <button className={styles.button} type="button">
+              <button className={`${styles.button} ${styles.buttonGhost}`} type="button">
                 <span>NO </span>
               </button>
             </Link>

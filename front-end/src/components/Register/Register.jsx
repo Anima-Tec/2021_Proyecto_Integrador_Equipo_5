@@ -18,6 +18,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Login() {
   const [loading, setLoading] = useState(false);
+  const [isDate, setIsDate] = useState(false);
   const history = useHistory();
 
   const schema = yup.object().shape({
@@ -121,7 +122,10 @@ export default function Login() {
                     className={styles.input}
                     placeholder="Fecha de nacimiento"
                     name="date_birth"
-                    type="date"
+                    type={isDate ? 'date' : 'text'}
+                    id="date"
+                    onFocus={() => setIsDate(true)}
+                    onBlur={() => setIsDate(false)}
                     {...register('date_birth')}
                   />
                   <span className={styles.error}>{errors.date_birth?.message}</span>
