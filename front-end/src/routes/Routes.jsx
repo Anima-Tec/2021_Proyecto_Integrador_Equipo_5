@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Home from '../pages/Home';
 import Login from '../pages/SignIn';
-import Test from '../pages/Test';
+import Test from '../components/Test/part1';
 import Test2 from '../components/Test/part2';
 import Test3 from '../components/Test/part3';
 import Test4 from '../components/Test/part4';
@@ -12,6 +12,7 @@ import Test6 from '../components/Test/part6';
 import Test7 from '../components/Test/part7';
 import Test8 from '../components/Test/part8';
 import Test9 from '../components/Test/part9';
+import Result from '../components/Test/result';
 import NavBar from '../components/navbar/NavBar';
 import Register from '../components/Register/Register';
 import NavRouter from './NavRoutes';
@@ -62,6 +63,10 @@ const Routes = () => {
       <NavRouter path="/test9">
         <NavBar />
         <Test9 />
+      </NavRouter>
+      <NavRouter path="/result">
+        <NavBar />
+        <Result />
       </NavRouter>
       <Route>
         <Redirect to="/inicio" exact />
