@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 /* eslint-disable no-debugger */
 /* eslint-disable no-console */
 /* eslint-disable no-alert */
@@ -78,11 +79,18 @@ export default function Test2() {
               </p>
             </div>
           </div>
-          <Link to="/test3">
-            <button className={styles.button} type="submit" onClick={calc}>
-              <span>Siguiente </span>
-            </button>
-          </Link>
+          <div>
+            <Link to="/home">
+              <button className={`${styles.button} ${styles.buttonGhost}`} type="submit">
+                <span>Volver </span>
+              </button>
+            </Link>
+            <Link to="/test3">
+              <button className={styles.button} type="submit" onClick={calc}>
+                <span>Siguiente </span>
+              </button>
+            </Link>
+          </div>
         </form>
         <div className="col d-none d-sm-flex d-sm-none d-md-none d-flex d-lg-flex justify-content-center align-items-center">
           <img src={Ilustration} alt="Ilustración" className={`animate__bounceIn ${styles.img}`} />
