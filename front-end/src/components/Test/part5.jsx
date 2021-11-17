@@ -1,9 +1,5 @@
-/* eslint-disable no-restricted-globals */
-/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable */
 import React from 'react';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Test.module.scss';
 import Ilustration from '../../assets/images/test.svg';
@@ -14,11 +10,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export default function Test5() {
   document.title = 'kiwi - test';
 
-  let [weightLossDiet, setWeightLossDiet] = useState();
-
-  const getWeightLoss = (event) => {
-    weightLossDiet = setWeightLossDiet(event.target.value);
-  };
   return (
     <div className="container-fluid" style={{ width: '80%' }}>
       <div className="row" style={{ height: '80vh' }}>
@@ -32,7 +23,6 @@ export default function Test5() {
               <div className="form-check form-check-inline">
                 <input
                   className={`form-check-input ${styles.check}`}
-                  onChange={getWeightLoss}
                   type="radio"
                   name="inlineRadioOptions"
                   id="inlineRadio1"
@@ -45,7 +35,6 @@ export default function Test5() {
               <div className="form-check form-check-inline">
                 <input
                   className={`form-check-input ${styles.check}`}
-                  onChange={getWeightLoss}
                   type="radio"
                   name="inlineRadioOptions"
                   id="inlineRadio2"
