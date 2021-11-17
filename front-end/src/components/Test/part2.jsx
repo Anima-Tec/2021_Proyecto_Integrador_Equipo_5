@@ -1,48 +1,32 @@
-/* eslint-disable no-restricted-globals */
-/* eslint-disable no-debugger */
-/* eslint-disable no-console */
-/* eslint-disable no-alert */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from 'react';
+/* eslint-disable camelcase */ // disableamos camelcase para que no nos de error en el client id
+import { React, useState } from 'react';
 import { Link } from 'react-router-dom';
+import ImcController from '../../networking/controllers/ImcController';
 import styles from './Test.module.scss';
 import Ilustration from '../../assets/images/test.svg';
 import 'animate.css';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Test2() {
-  const [altura, setAltura] = useState('');
-  const [peso, setPeso] = useState('');
-  const cm = document.getElementById('cm');
-  const kg = document.getElementById('kg');
-
-  const calc = () => {
-    const arr = ['A', 'B', 'D', 'E'];
-    if (kg.value !== '' && cm.value !== '') {
-      const weight = kg.value;
-      const height = cm.value / 100;
-      const imc = weight / (height * height);
-      if (imc < 18.5) {
-        alert(`Peso inferior al normal ${imc}`);
-        arr.insert(0, '0');
-      } else if (imc >= 18.5 && imc <= 24.9) {
-        arr.insert(0, 20);
-        alert(`Peso normal ${imc}`);
-      } else if (imc >= 25 && imc <= 29.9) {
-        arr.insert(0, 20);
-        alert(`Peso superior al normal ${imc}`);
-      } else if (imc > 30) {
-        arr.insert(0, '0');
-        alert(`Obesidad ${imc}`);
-      }
-    } else {
-      alert('Debes ingresar peso y altura.');
-    }
-    console.log(arr);
-  };
   document.title = 'kiwi - test';
+  const session = JSON.parse(localStorage.getItem('user')) || null;
+  const [height, setHeight] = useState('');
+  const [weight, setWeight] = useState('');
+  const handleHeightChange = (event) => {
+    setHeight(event.target.value);
+  };
+  const handleWeightChange = (event) => {
+    setWeight(event.target.value);
+  };
+
+  function imc() {
+    if (height && weight) {
+      const client_id = session?.user?.client_id;
+      ImcController.sendImc(client_id, height, weight);
+    }
+  }
   return (
     <div className="container-fluid" style={{ width: '80%' }}>
       <div className="row" style={{ height: '80vh' }}>
@@ -56,25 +40,25 @@ export default function Test2() {
               <p className={styles.containerInput}>
                 <label className={styles.label}>Altura (cm)</label>
                 <input
-                  value={altura}
-                  onChange={(e) => setAltura(e.target.value)}
+                  onChange={handleHeightChange}
                   className={styles.input}
                   placeholder="Ingrese su altura"
-                  name="cm"
+                  name="height"
                   autoComplete="off"
-                  id="cm"
+                  type="number"
+                  min="1"
                 />
               </p>
               <p className={styles.containerInput}>
                 <label className={styles.label}>Peso (kg)</label>
                 <input
-                  value={peso}
-                  onChange={(e) => setPeso(e.target.value)}
+                  onChange={handleWeightChange}
                   className={styles.input}
                   placeholder="Ingrese su peso"
-                  name="kg"
+                  name="weight"
                   autoComplete="off"
-                  id="kg"
+                  type="number"
+                  min="1"
                 />
               </p>
             </div>
@@ -86,7 +70,7 @@ export default function Test2() {
               </button>
             </Link>
             <Link to="/test3">
-              <button className={styles.button} type="submit" onClick={calc}>
+              <button className={styles.button} type="submit" onClick={() => imc(height, weight)}>
                 <span>Siguiente </span>
               </button>
             </Link>
