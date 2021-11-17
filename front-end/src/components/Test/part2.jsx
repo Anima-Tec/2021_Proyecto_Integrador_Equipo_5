@@ -1,53 +1,41 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable */
-import { useForm } from 'react-hook-form';
-import * as yup from 'yup';
-import { useState } from 'react';
-import { yupResolver } from '@hookform/resolvers/yup';
-import React from 'react';
+/* eslint-disable camelcase */ // disableamos camelcase para que no nos de error en el client id
+
+import { React, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ImcController from '../../networking/controllers/ImcController';
 import styles from './Test.module.scss';
 import Ilustration from '../../assets/images/test.svg';
 import 'animate.css';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Test2() {
   document.title = 'kiwi - test';
   const session = JSON.parse(localStorage.getItem('user')) || null;
 
-  const [height, setHeight] = useState();
-  const [weight, setWeight] = useState();
+  const [height, setHeight] = useState('');
+  const [weight, setWeight] = useState('');
 
-  const handleChange = (event) => {
+  const handleHeightChange = (event) => {
     setHeight(event.target.value);
   };
 
-  const handleChange2 = (event) => {
+  const handleWeightChange = (event) => {
     setWeight(event.target.value);
   };
 
-  function imc(height, weight) {
-    try {
-      if(height && weight) {
-        const client_id = session?.user?.client_id;
-        height = parseInt(height);
-        weight = parseInt(weight);
-        console.log(client_id, height, weight);
-        ImcController.sendImc(client_id, height, weight);
-      }
-    } catch (error) {
-      console.log(error);
+  function imc() {
+    if (height && weight) {
+      const client_id = session?.user?.client_id;
+      ImcController.sendImc(client_id, height, weight);
     }
-  };
+  }
 
   return (
     <div className="container-fluid" style={{ width: '80%' }}>
       <div className="row" style={{ height: '80vh' }}>
         <form
-          /*onSubmit={this.onSubmit(height, weight)}*/
           className={`col d-flex flex-column justify-content-center align-items-center ${styles.form}`}
         >
           <span className={styles.title}>PREGUNTA 1 / 8</span>
@@ -61,7 +49,7 @@ export default function Test2() {
                   placeholder="Ingrese su altura"
                   name="height"
                   autoComplete="off"
-                  onChange={handleChange}
+                  onChange={handleHeightChange}
                   type="number"
                   min="0"
                 />
@@ -73,7 +61,7 @@ export default function Test2() {
                   placeholder="Ingrese su peso"
                   name="weight"
                   autoComplete="off"
-                  onChange={handleChange2}
+                  onChange={handleWeightChange}
                   type="number"
                   min="0"
                 />
