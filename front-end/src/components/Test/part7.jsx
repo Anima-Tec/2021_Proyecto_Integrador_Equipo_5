@@ -1,10 +1,5 @@
-/* eslint-disable no-restricted-globals */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable */
 import React from 'react';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Test.module.scss';
 import Ilustration from '../../assets/images/test.svg';
@@ -15,11 +10,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export default function Test7() {
   document.title = 'kiwi - test';
 
-  let [foodFrecuency, setFoodFrecuency] = useState();
-
-  const getFoodFrecuency = (event) => {
-    foodFrecuency = setFoodFrecuency(event.target.value);
-  }
   return (
     <div className="container-fluid" style={{ width: '80%' }}>
       <div className="row" style={{ height: '80vh' }}>
@@ -31,7 +21,7 @@ export default function Test7() {
             <h1 className={styles.question}>¿Cuántos tiempos de comida haces?</h1>
             <div className="d-flex justify-content-center mt-4">
               <p>
-                <select name="select" className={styles.select} onChange={getFoodFrecuency}>
+                <select name="select" className={styles.select}>
                   <option hidden selected disabled>
                     Elija una opción
                   </option>
@@ -40,7 +30,8 @@ export default function Test7() {
                   <option value="4">4</option>
                   <option value="5">5</option>
                   <option value="Mas-de-6">Más de 6</option>
-                </select>{' '}
+                </select>
+                {' '}
               </p>
             </div>
           </div>

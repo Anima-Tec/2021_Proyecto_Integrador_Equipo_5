@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
@@ -158,7 +156,8 @@ export default function Login() {
               {loading ? <Spinner /> : <span>REGISTRARSE </span>}
             </button>
             <p className={styles.p}>
-              Tienes una cuenta?{' '}
+              Tienes una cuenta?
+              {' '}
               <Link to="/login" className={styles.link}>
                 Iniciar sesión
               </Link>

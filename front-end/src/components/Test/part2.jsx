@@ -1,6 +1,6 @@
-/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable camelcase */ // disableamos camelcase para que no nos de error en el client id
+/* eslint-disable */
 import { React, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ImcController from '../../networking/controllers/ImcController';
@@ -14,6 +14,7 @@ export default function Test2() {
   const session = JSON.parse(localStorage.getItem('user')) || null;
   const [height, setHeight] = useState('');
   const [weight, setWeight] = useState('');
+
   const handleHeightChange = (event) => {
     setHeight(event.target.value);
   };
@@ -22,10 +23,8 @@ export default function Test2() {
   };
 
   function imc() {
-    if (height && weight) {
       const client_id = session?.user?.client_id;
       ImcController.sendImc(client_id, height, weight);
-    }
   }
   return (
     <div className="container-fluid" style={{ width: '80%' }}>
