@@ -1,24 +1,13 @@
-/* eslint-disable no-restricted-globals */
-/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable */
 import React from 'react';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Test.module.scss';
 import Ilustration from '../../assets/images/test.svg';
 import 'animate.css';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Test8() {
   document.title = 'kiwi - test';
-
-  let [vegFrecuency, setVegFrecuency] = useState();
-
-  const getVegFrecuency = (event) => {
-    vegFrecuency = setVegFrecuency(event.target.value);
-  };
 
   return (
     <div className="container-fluid" style={{ width: '80%' }}>
@@ -33,7 +22,6 @@ export default function Test8() {
               <div className="form-check form-check-inline">
                 <input
                   className={`form-check-input ${styles.check}`}
-                  onChange={getVegFrecuency}
                   type="radio"
                   name="inlineRadioOptions"
                   id="inlineRadio1"
@@ -46,7 +34,6 @@ export default function Test8() {
               <div className="form-check form-check-inline">
                 <input
                   className={`form-check-input ${styles.check}`}
-                  onChange={getVegFrecuency}
                   type="radio"
                   name="inlineRadioOptions"
                   id="inlineRadio2"

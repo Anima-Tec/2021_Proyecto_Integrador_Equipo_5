@@ -14,7 +14,7 @@ import Test8 from '../components/Test/part8';
 import Test9 from '../components/Test/part9';
 import Result from '../components/Test/result';
 import NavBar from '../components/navbar/NavBar';
-import Register from '../components/Register/Register';
+import Register from '../pages/SignUp';
 import NavRouter from './NavRoutes';
 
 const Routes = () => {

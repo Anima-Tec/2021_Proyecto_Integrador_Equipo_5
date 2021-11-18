@@ -1,11 +1,5 @@
-/* eslint-disable no-restricted-globals */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable */
-
-import React from 'react';
-import { useState } from 'react';
+import { React } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Test.module.scss';
 import Ilustration from '../../assets/images/test.svg';
@@ -15,14 +9,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Test3() {
   document.title = 'kiwi - test';
-  const [diet, setDiet] = useState();
-
-  const handleChange = (event) => {
-    setDiet({
-      ...diet,
-      [event.target.name]: event.target.value,
-    });
-  };
 
   return (
     <div className="container-fluid" style={{ width: '80%' }}>
@@ -35,7 +21,7 @@ export default function Test3() {
             <h1 className={styles.question}>¿Llevas algún tipo de alimentación especial?</h1>
             <div className="d-flex justify-content-center mt-4">
               <p>
-                <select name="select" className={styles.select} onChange={handleChange}>
+                <select name="select" className={styles.select}>
                   <option hidden selected disabled>
                     Elija una opción
                   </option>
@@ -43,7 +29,8 @@ export default function Test3() {
                   <option value="Octovegetariana" id="answer1">Octovegetariana</option>
                   <option value="Pesco-vegetariana" id="answer2">Pesco-vegetariana</option>
                   <option value="Sin gluten" id="answer3">Sin gluten</option>
-                </select>{' '}
+                </select>
+                {' '}
               </p>
             </div>
           </div>
