@@ -58,13 +58,6 @@ export default function result() {
             <span className={`${styles.result}`}> {imc.value}</span>
           </p>
           <button className={`${styles.buttonResult}`} onClick={setResult}> Obtener resultado</button>
-          <div>
-            <Link to="www.instagram.com/paloma.vanoli/">
-              <button className={`${styles.buttonResult}`} type="button">
-                <span>Obtener Consulta </span>
-              </button>
-            </Link>
-          </div>
         </form>
       </div>
     </div>
