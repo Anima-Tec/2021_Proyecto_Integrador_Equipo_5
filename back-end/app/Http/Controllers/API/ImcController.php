@@ -34,9 +34,10 @@ class ImcController extends ApiController
 
     }
 
-    public function show($id)
+    public function show($client_id)
     {
-        return Imc::find($id);
+        $imc = Imc::where('client_id', $client_id)->first();
+        return response($imc, 200);
     }
 
     private function calculate_imc($height, $weight) {
