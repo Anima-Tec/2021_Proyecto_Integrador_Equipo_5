@@ -16,6 +16,15 @@ class ImcController {
       }
     });
   }
+  static async getImc(client_id) {
+    const session = JSON.parse(localStorage.getItem('user')).token || null;
+    const response = await axios.get(generateBackendURL(`imc/${client_id}`), {
+      headers: {
+        'Authorization': 'Bearer ' + session,
+      }
+    });
+    return response.data;
+  }
 }
 
 export default ImcController;
